@@ -44,6 +44,9 @@ onready var attachments_empty = $Scroll/Attachments/empty
 
 onready var log_box = $Log
 
+#VecPostion
+onready var vec_pos = $VecPostion
+
 onready var serial_collapsable = $Serial
 onready var uart = $Serial/UartPanel/Uart
 onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
@@ -372,7 +375,7 @@ func reset_vehicle_pos() -> void:
 		return
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
-	vehicle.global_transform.origin = Vector3(0,3,0)
+	vehicle.global_transform.origin = vec_pos.transform
 	vehicle.global_transform.basis = Basis()
 	if ! was_frozen:
 		vehicle.unfreeze()
