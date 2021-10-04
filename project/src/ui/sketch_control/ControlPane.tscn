@@ -495,5 +495,5 @@ anchor_bottom = 0.0
 margin_right = 1280.0
 margin_bottom = 300.0
 
-[node name="VecPostion" parent="." instance=ExtResource( 3 )]
-transform = Vector3( 30, 3, 30)
+[node name="Position" parent="." instance=ExtResource( 2 )]
+position = Vector3(20,20,-10)
