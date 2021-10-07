@@ -366,13 +366,18 @@ func _setup_attachments() -> void:
 		attachments.add_child(collapsable)
 		attachment.connect("tree_exited", collapsable, "call", ["queue_free"])
 
+# Vector3(x,z,y) z means at what height did it fall, cant be set to 0
+# x<0 means left side, x>0 means right side
+# y<0 means forward, y>0 means backward
+func init_vec_pos() -> Vector3:
+	return $Position.position
 
 func reset_vehicle_pos() -> void:
 	if !is_instance_valid(vehicle):
 		return
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
-	vehicle.global_transform.origin = Vector3(0,3,0)
+	vehicle.global_transform.origin = init_vec_pos()
 	vehicle.global_transform.basis = Basis()
 	if ! was_frozen:
 		vehicle.unfreeze()
