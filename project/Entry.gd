@@ -26,7 +26,6 @@ onready var _request: HTTPRequest = $HTTPRequest
 
 var error: String = ""
 
-
 func _ready():
 	var custom_dir = OS.get_environment("SMCEGD_USER_DIR")
 	if custom_dir != "":
@@ -72,25 +71,14 @@ func _ready():
 	if ! is_instance_valid(bar):
 		return _error("Shared library not loaded")
 	
-
 	var res = bar.init(Global.user_dir)
 	
-	
-	
-	print("res.error()")
-	print(res.error())
-	print("res.error()")
-
-
-
 	if ! res.ok():
 		var cmake_exec = yield(_download_cmake(), "completed")
 		if ! cmake_exec:
 			return _error("Failed to retrieve cmake")
-		return _error("Unsuitable environment: %s" % res.error())
 	print(bar.resource_dir())
 	bar.free()
-	
 
 	Global.scan_named_classes("res://src")
 	
@@ -104,7 +92,6 @@ func _continue():
 		return _error("No Main Scene")
 	get_tree().change_scene_to(main_scene)
 
-
 func _error(message: String) -> void:
 	var file: File = File.new()
 	var result = file.open("user://logs/godot.log", File.READ)
@@ -115,66 +102,64 @@ func _error(message: String) -> void:
 	_header.text += "\n" + message
 	error = "Error Reason: " + message + "\n" + logfile
 
-
 func _on_clipboard_copy() -> void:
 	OS.clipboard = error
 
+var cmake_version = "cmake-3.21.3-"
+var cmake_os = ["linux-x86_64", "macos-universal", "windows-x86_64"]
 var osi = {
-	"X11": ["cmake-3.21.3-linux-x86_64.tar.gz", "/cmake-3.21.3-linux-x86_64/bin", "/cmake-3.21.3-linux-x86_64/bin/cmake"],
-	"OSX": ["cmake-3.21.3-macos-universal.tar.gz", "/cmake-3.21.3-macos-universal/CMake.app/Contents/bin", "/cmake-3.21.3-macos-universal/CMake.app/Contents/bin/cmake"], # people using < macos 10.13 will have more problems anyways
-	"Windows": ["cmake-3.21.3-windows-x86_64.zip", "/cmake-3.21.3-windows-x86_64/bin", "/cmake-3.21.3-windows-x86_64/bin/cmake.exe"]
+	"X11": [cmake_version + cmake_os[0] +".tar.gz", cmake_version + cmake_os[0] +"/bin"],
+	"OSX": [cmake_version + cmake_os[1] + ".tar.gz", cmake_version + cmake_os[1] + "/CMake.app/Contents/bin"],
+	"Windows": [cmake_version + cmake_os[2] + ".zip", cmake_version + cmake_os[2] + "/bin"]
+}
+var osi_cmake = {
+	"X11": "/cmake",
+	"OSX": "/cmake",
+	"Windows": "/cmake.exe"
 }
 
 func _download_cmake():
 	yield(get_tree(), "idle_frame")
 
 	var da = osi.get(OS.get_name())
-	var file: String = da[0]
-	var file_path: String
-	var cmake_exec = OS.get_user_data_dir() + da[2]
+	var da_cm = osi_cmake.get(OS.get_name())
+	var cmake_path: String = OS.get_user_data_dir() + "/RtResources/CMake/"
+	var cmake_zip: String = cmake_path + da[0]
+	var cmake_exec: String = cmake_path + da[1] + da_cm
 	var cmake_ver = []
-	var cmake_res
 
-	if OS.get_name() == "Windows":
-		var drive_id: int = Directory.new().get_current_drive()
-		var drive_name: String = Directory.new().get_drive(drive_id)
-		var username
-		if OS.has_environment("USERNAME"):
-			username = OS.get_environment("USERNAME")
-		file_path = drive_name + "/Users/" + username + "/%s" % file
-
-	elif OS.get_name() == "X11":
-		file_path = "user://%s" % file
-	elif OS.get_name() == "OSX":
-		file_path = "user://%s" % file # TODO: Modify for MacOS
-		
 	if File.new().file_exists(cmake_exec):
-		cmake_res = OS.execute(cmake_exec, ["--version"], true, cmake_ver)
-		print(cmake_res)
-		if cmake_res != 0:
+		if OS.execute(cmake_exec, ["--version"], true, cmake_ver) != 0:
 			return false
-		print("--\n%s--" % cmake_ver.front())
-		print("CMake Downloaded & Installed")
-		print("To use CMake, please put " + OS.get_user_data_dir() + da[1] + " in your environment variable path manually")
-		return cmake_exec
-
-	if ! File.new().file_exists(file_path):
-		_request.download_file = file_path + ".download"
-		var url: String = "https://github.com/Kitware/CMake/releases/download/v3.21.3/%s" % file
-		if ! _request.request(url):
-			var ret = yield(_request, "request_completed")
-			Directory.new().copy(_request.download_file, file_path)
-			Directory.new().remove(_request.download_file)
-		else:
+		
+		print("CMake found on host!")
+		
+	else:
+		if ! File.new().file_exists(cmake_zip):
+			print("Downloading CMake zip...")
+			_request.download_file = cmake_zip + ".download"
+			if ! _request.request("https://github.com/Kitware/CMake/releases/download/v3.21.3/%s" % da[0]):
+				var ret = yield(_request, "request_completed")
+				Directory.new().copy(_request.download_file, cmake_zip)
+				Directory.new().remove(_request.download_file)
+			else:
+				return null
+		
+		print("Downloaded CMake zip")
+		
+		print("Unzipping CMake zip...")
+		if ! Util.unzip(Util.user2abs(cmake_zip), cmake_path):
 			return null
-	
-	if ! Util.unzip(Util.user2abs(file_path), OS.get_user_data_dir()):
-		return null
-	
-	cmake_res = OS.execute(cmake_exec, ["--version"], true, cmake_ver)
-	
-	if cmake_res != 0:
-		return false
+		
+		print("Unzipped CMake zip")
+		
+		print("Delete CMake zip")
+		Directory.new().remove(cmake_zip)
+
+		if OS.execute(cmake_exec, ["--version"], true, cmake_ver) != 0:
+			return false
+		
+		print("CMake has been downloaded and installed on host!")
+
 	print("--\n%s--" % cmake_ver.front())
-	
 	return cmake_exec
