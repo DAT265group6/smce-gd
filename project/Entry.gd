@@ -108,24 +108,18 @@ func _on_clipboard_copy() -> void:
 var cmake_version = "cmake-3.21.3-"
 var cmake_os = ["linux-x86_64", "macos-universal", "windows-x86_64"]
 var osi = {
-	"X11": [cmake_version + cmake_os[0] +".tar.gz", cmake_version + cmake_os[0] +"/bin"],
-	"OSX": [cmake_version + cmake_os[1] + ".tar.gz", cmake_version + cmake_os[1] + "/CMake.app/Contents/bin"],
-	"Windows": [cmake_version + cmake_os[2] + ".zip", cmake_version + cmake_os[2] + "/bin"]
-}
-var osi_cmake = {
-	"X11": "/cmake",
-	"OSX": "/cmake",
-	"Windows": "/cmake.exe"
+	"X11": [cmake_version + cmake_os[0] +".tar.gz", cmake_version + cmake_os[0] +"/bin", "/cmake"],
+	"OSX": [cmake_version + cmake_os[1] + ".tar.gz", cmake_version + cmake_os[1] + "/CMake.app/Contents/bin", "/cmake"],
+	"Windows": [cmake_version + cmake_os[2] + ".zip", cmake_version + cmake_os[2] + "/bin", "/cmake.exe"]
 }
 
 func _download_cmake():
 	yield(get_tree(), "idle_frame")
 
 	var da = osi.get(OS.get_name())
-	var da_cm = osi_cmake.get(OS.get_name())
 	var cmake_path: String = OS.get_user_data_dir() + "/RtResources/CMake/"
 	var cmake_zip: String = cmake_path + da[0]
-	var cmake_exec: String = cmake_path + da[1] + da_cm
+	var cmake_exec: String = cmake_path + da[1] + da[2]
 	var cmake_ver = []
 
 	if File.new().file_exists(cmake_exec):
