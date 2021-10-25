@@ -39,6 +39,8 @@ onready var start_btn: Button = $PaddingBox2/SketchButtons/Start
 onready var reset_pos_btn: Button = $PaddingBox/VehicleButtons/Reset
 onready var follow_btn: Button = $PaddingBox/VehicleButtons/Follow
 
+onready var toggle_btn: Button = $ActivateToggle
+
 onready var attachments = $Scroll/Attachments
 onready var attachments_empty = $Scroll/Attachments/empty
 
@@ -118,6 +120,8 @@ func _ready():
 	reset_pos_btn.connect("pressed", self, "_on_reset_pos")
 	follow_btn.connect("pressed", self, "_on_follow")
 	
+	toggle_btn.connect("pressed", self, "_on_Button_toggled")
+	
 	
 	uart.set_uart(_board.uart())
 	file_path_header.text = " " + sketch_path.get_file().get_file()
@@ -140,6 +144,7 @@ func _on_board_cleaned() -> void:
 	pause_btn.disabled = true
 	reset_pos_btn.disabled = true
 	follow_btn.disabled = true
+	toggle_btn.disabled = true
 	compile_btn.disabled = _toolchain.is_building()
 
 
@@ -186,6 +191,7 @@ func _on_board_started() -> void:
 	reset_pos_btn.disabled = false
 	start_btn.text = "Stop"
 	follow_btn.disabled = false
+	toggle_btn.disabled = false
 
 
 func _on_board_suspended_resumed(suspended: bool) -> void:
@@ -215,6 +221,7 @@ func _on_board_stopped(exit_code: int) -> void:
 	pause_btn.disabled = true
 	reset_pos_btn.disabled = true
 	follow_btn.disabled = true
+	toggle_btn.disabled = true
 	uart.disabled = true
 	
 	vehicle.queue_free()
@@ -250,6 +257,12 @@ func _on_follow() -> void:
 		cam_ctl.free_cam()
 	else:
 		cam_ctl.lock_cam(vehicle)
+
+func _on_Button_toggled():
+	if(toggle_btn.pressed):
+		print("Hello")
+	else:
+		print("Goodbye")    
 
 
 func _on_reset_pos() -> void:

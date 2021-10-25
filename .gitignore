@@ -4,6 +4,8 @@
 # CMake
 cmake-build-*/
 
+build/
+
 # SMCE
 .cmaw
 
