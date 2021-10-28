@@ -232,7 +232,7 @@ func _download_cmake():
 				else:
 					break
 
-		ccrv_arr = ccrv.split(".")
+		var ccrv_arr = ccrv.split(".")
 		while true:
 			if ccrv_arr.size() > cchvs_arr.size():
 				cchvs_arr.append("0")
