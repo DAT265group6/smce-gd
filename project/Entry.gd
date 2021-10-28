@@ -124,8 +124,8 @@ func _get_cmake_folders(path: String):
 	dir.list_dir_end()
 	return files
 
-# Manually update value of this variable to download the CMake version that you wish
-# Ideally pick one version that is higher version than the minimum required version
+# Manually update value of this variable to download the CMake version that you need
+# Ideally pick a version that is higher version than the minimum required version
 var cmake_version = "3.21.3"
 
 # ccrv: Current CMake Required Version
@@ -158,9 +158,9 @@ func _download_cmake():
 	var cmake_folders = _get_cmake_folders(cmake_path)
 	if cmake_folders.size() > 0:
 		print("Finding highest CMake version found on host...")
-		# cchvd: Current CMake Highest Version Directory (found on host)
+		# cchvp: Current CMake Highest Version Path (found on host)
 		# E.g. "cmake-3.21.3-windows-x86_64"
-		var cchvd
+		var cchvp
 
 		# cchvs: Current CMake Highest Version String (found on host)
 		# E.g. "3.21.3"
@@ -180,17 +180,17 @@ func _download_cmake():
 		var j
 
 		# Initialize variables
-		cchvd = cmake_folders[0]
-		cchvs = cchvd.split("-")
+		cchvp = cmake_folders[0]
+		cchvs = cchvp.split("-")
 		cchvs = cchvs[1]
 
-		# ccvd: Current CMake Version Directory (found on host)
+		# ccvp: Current CMake Version Path (found on host)
 		# E.g. "cmake-3.8.2-win64-x64"
-		for ccvd in cmake_folders:
+		for ccvp in cmake_folders:
 			# ccvs: Current CMake Version String (found on host)
 			# E.g. "3.8.2"
 			var ccvs
-			ccvs = ccvd.split("-")
+			ccvs = ccvp.split("-")
 			ccvs = ccvs[1]
 
 			# ccvs_arr: ccvs array
@@ -216,7 +216,7 @@ func _download_cmake():
 			j = 0
 
 			# Comparing to find CMake Highest Version (found on host)
-			# Updates cchvd and cchvs
+			# Updates cchvp and cchvs
 			while true:
 				if i <= ccvs_arr.size() - 1:
 					if int(ccvs_arr[i]) == int(cchvs_arr[j]):
@@ -224,7 +224,7 @@ func _download_cmake():
 						j = j + 1
 						continue
 					if int(ccvs_arr[i]) > int(cchvs_arr[j]):
-						cchvd = ccvd
+						cchvp = ccvp
 						cchvs = ccvs
 						break
 					elif int(ccvs_arr[i]) < int(cchvs_arr[j]):
