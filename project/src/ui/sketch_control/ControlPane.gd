@@ -39,8 +39,6 @@ onready var start_btn: Button = $PaddingBox2/SketchButtons/Start
 onready var reset_pos_btn: Button = $PaddingBox/VehicleButtons/Reset
 onready var follow_btn: Button = $PaddingBox/VehicleButtons/Follow
 
-onready var toggle_btn: Button = $ActivateToggle
-
 onready var attachments = $Scroll/Attachments
 onready var attachments_empty = $Scroll/Attachments/empty
 
@@ -49,6 +47,9 @@ onready var log_box = $Log
 onready var serial_collapsable = $Serial
 onready var uart = $Serial/UartPanel/Uart
 onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
+
+var pixel_style_activated
+var pixel_style_deactivated
 
 var sketch_path: String = ""
 
@@ -120,8 +121,37 @@ func _ready():
 	reset_pos_btn.connect("pressed", self, "_on_reset_pos")
 	follow_btn.connect("pressed", self, "_on_follow")
 	
-	toggle_btn.connect("pressed", self, "_on_Button_toggled")
-	
+	$ShowHideScreenToggle.connect("pressed", self, "ShowHideScreenToggle")
+	$OnOffScreenToggle.connect("pressed", self, "OnOffScreenToggle")
+
+	$ShowHideScreenToggle.visible = false
+	$ShowHideScreenToggle.pressed = false
+
+	$OnOffScreenToggle.visible = false
+	$OnOffScreenToggle.pressed = false
+
+	$PanelContainer.visible = false
+
+	pixel_style_deactivated = StyleBoxFlat.new()
+	pixel_style_deactivated.set_bg_color(Color(0.078, 0.078, 0.078, 1)) #grey
+	pixel_style_deactivated.set_corner_radius(CORNER_TOP_LEFT, 2)
+	pixel_style_deactivated.set_corner_radius(CORNER_TOP_RIGHT, 2)
+	pixel_style_deactivated.set_corner_radius(CORNER_BOTTOM_RIGHT, 2)
+	pixel_style_deactivated.set_corner_radius(CORNER_BOTTOM_LEFT, 2)
+	#pixel_style_deactivated.shadow_color = Color(1,1,1,0.6)
+	pixel_style_deactivated.anti_aliasing = false
+	#pixel_style_deactivated.shadow_size = 0
+
+	pixel_style_activated = StyleBoxFlat.new()
+	pixel_style_activated.set_bg_color(Color(0.85, 0.85, 0.85, 1)) #white-grey
+	pixel_style_activated.set_corner_radius(CORNER_TOP_LEFT, 2)
+	pixel_style_activated.set_corner_radius(CORNER_TOP_RIGHT, 2)
+	pixel_style_activated.set_corner_radius(CORNER_BOTTOM_RIGHT, 2)
+	pixel_style_activated.set_corner_radius(CORNER_BOTTOM_LEFT, 2)
+	#pixel_style_activated.shadow_color = Color(1,1,1,0.6)
+	pixel_style_activated.anti_aliasing = false
+	#pixel_style_activated.shadow_size = 0
+
 	
 	uart.set_uart(_board.uart())
 	file_path_header.text = " " + sketch_path.get_file().get_file()
@@ -144,7 +174,6 @@ func _on_board_cleaned() -> void:
 	pause_btn.disabled = true
 	reset_pos_btn.disabled = true
 	follow_btn.disabled = true
-	toggle_btn.disabled = true
 	compile_btn.disabled = _toolchain.is_building()
 
 
@@ -191,7 +220,6 @@ func _on_board_started() -> void:
 	reset_pos_btn.disabled = false
 	start_btn.text = "Stop"
 	follow_btn.disabled = false
-	toggle_btn.disabled = false
 
 
 func _on_board_suspended_resumed(suspended: bool) -> void:
@@ -221,7 +249,6 @@ func _on_board_stopped(exit_code: int) -> void:
 	pause_btn.disabled = true
 	reset_pos_btn.disabled = true
 	follow_btn.disabled = true
-	toggle_btn.disabled = true
 	uart.disabled = true
 	
 	vehicle.queue_free()
@@ -258,11 +285,44 @@ func _on_follow() -> void:
 	else:
 		cam_ctl.lock_cam(vehicle)
 
-func _on_Button_toggled():
-	if(toggle_btn.pressed):
-		print("Hello")
+func activate_pixel(row: int, col: int) -> void:
+	if row < 0:
+		return
+	if row > 6:
+		return
+	if col < 0:
+		return
+	if col > 11:
+		return
+	
+	var pixel: Node = get_node(NodePath("PanelContainer/ColumnsContainer/RowsContainer" + String(col) + "/" + "Panel" + String(row)))
+	pixel.set('custom_styles/panel', pixel_style_activated)
+
+func deactivate_pixel(row: int, col: int) -> void:
+	if row < 0:
+		return
+	if row > 6:
+		return
+	if col < 0:
+		return
+	if col > 11:
+		return
+	
+	var pixel: Node = get_node(NodePath("PanelContainer/ColumnsContainer/RowsContainer" + String(col) + "/" + "Panel" + String(row)))
+	pixel.set('custom_styles/panel', pixel_style_deactivated)
+
+func ShowHideScreenToggle():
+	if($ShowHideScreenToggle.pressed):
+		$PanelContainer.visible = true
 	else:
-		print("Goodbye")    
+		$PanelContainer.visible = false
+
+func OnOffScreenToggle():
+	if($OnOffScreenToggle.pressed):
+		# get pixels to be activated from somewhere
+		activate_pixel(5, 3)
+	else:
+		deactivate_pixel(5, 3)
 
 
 func _on_reset_pos() -> void:
@@ -270,6 +330,9 @@ func _on_reset_pos() -> void:
 
 
 func _on_start() -> void:
+	$ShowHideScreenToggle.visible = true
+	$OnOffScreenToggle.visible = true
+
 	match _board.status():
 		SMCE.Status.RUNNING, SMCE.Status.SUSPENDED:
 			Util.print_if_err(_board.terminate())
@@ -390,7 +453,7 @@ func reset_vehicle_pos() -> void:
 		return
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
-	vehicle.global_transform.origin = init_vec_pos()
+	vehicle.global_transform.origin = Vector3(20,20,20)
 	vehicle.global_transform.basis = Basis()
 	if ! was_frozen:
 		vehicle.unfreeze()
