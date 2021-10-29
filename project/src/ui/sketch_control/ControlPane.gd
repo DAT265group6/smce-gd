@@ -286,26 +286,26 @@ func _on_follow() -> void:
 		cam_ctl.lock_cam(vehicle)
 
 func activate_pixel(row: int, col: int) -> void:
-	if row < 0:
+	if row < 1:
 		return
-	if row > 6:
+	if row > 7:
 		return
-	if col < 0:
+	if col < 1:
 		return
-	if col > 11:
+	if col > 12:
 		return
 	
 	var pixel: Node = get_node(NodePath("PanelContainer/ColumnsContainer/RowsContainer" + String(col) + "/" + "Panel" + String(row)))
 	pixel.set('custom_styles/panel', pixel_style_activated)
 
 func deactivate_pixel(row: int, col: int) -> void:
-	if row < 0:
+	if row < 1:
 		return
-	if row > 6:
+	if row > 7:
 		return
-	if col < 0:
+	if col < 1:
 		return
-	if col > 11:
+	if col > 12:
 		return
 	
 	var pixel: Node = get_node(NodePath("PanelContainer/ColumnsContainer/RowsContainer" + String(col) + "/" + "Panel" + String(row)))
