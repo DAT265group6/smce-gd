@@ -29,12 +29,12 @@ var error: String = ""
 func _ready():
 	var custom_dir = OS.get_environment("SMCEGD_USER_DIR")
 	if custom_dir != "":
-		print("Custom user directory set")
+		#print("Custom user directory set")
 		if !Global.set_user_dir(custom_dir):
 			return _error("Failed to setup custom user directory")
 	
 	_button.connect("pressed", self, "_on_clipboard_copy")
-	print("Reading version file..")
+	#print("Reading version file..")
 	var file = File.new()
 	var version = "unknown"
 	var exec_path = OS.get_executable_path()
@@ -45,11 +45,11 @@ func _ready():
 	Global.version = version
 
 	OS.set_window_title("SMCE-gd: %s" % version)
-	print("Version: %s" % version)
-	print("Executable: %s" % exec_path)
-	print("Mode: %s" % "Debug" if OS.is_debug_build() else "Release")
-	print("User dir: %s" % Global.user_dir)
-	print()
+	#print("Version: %s" % version)
+	#print("Executable: %s" % exec_path)
+	#print("Mode: %s" % "Debug" if OS.is_debug_build() else "Release")
+	#print("User dir: %s" % Global.user_dir)
+	#print()
 	
 	var dir = Directory.new()
 	
@@ -64,20 +64,16 @@ func _ready():
 	
 	Util.mkdir(Global.usr_dir_plus("mods"))
 	Util.mkdir(Global.usr_dir_plus("config/profiles"), true)
-	
-	print("Copied RtResources")
 
 	var bar = Toolchain.new()
 	if ! is_instance_valid(bar):
 		return _error("Shared library not loaded")
 	
 	var res = bar.init(Global.user_dir)
-	
 	if ! res.ok():
-		var cmake_exec = yield(_download_cmake(), "completed")
-		if ! cmake_exec:
+		if ! yield(_auto_install_cmake(), "completed"):
 			return _error("Failed to retrieve cmake")
-	print(bar.resource_dir())
+	#print(bar.resource_dir())
 	bar.free()
 
 	Global.scan_named_classes("res://src")
@@ -105,10 +101,65 @@ func _error(message: String) -> void:
 func _on_clipboard_copy() -> void:
 	OS.clipboard = error
 
-func _get_cmake_folders(path: String):
+# CMake version to be downloaded and installed
+var cmake_version = "3.21.3"
+
+# Minimum CMake version required
+var cmake_minimum_version = "3.12"
+
+var osi = {
+	"X11": ["linux-x86_64", ".tar.gz", "/bin", "/cmake"],
+	"OSX": ["macos-universal", ".tar.gz", "/CMake.app/Contents/bin", "/cmake"],
+	"Windows": ["windows-x86_64", ".zip", "/bin", "/cmake.exe"]
+}
+var da = osi.get(OS.get_name())
+var cmake_path: String = OS.get_user_data_dir() + "/RtResources/CMake/"
+var cmake_exec_paths = []
+var cmake_urls = []
+
+# For searching CMake execution path
+func _update_cmake_exec_paths(v: String) -> void:
+	cmake_exec_paths = []
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + da[0] + "/" + "cmake-" + cmake_version + "-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc1-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc2-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc3-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc4-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc5-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc1-" + da[0] + "/" + "cmake-" + cmake_version + "-" + "rc1-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc2-" + da[0] + "/" + "cmake-" + cmake_version + "-" + "rc2-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc3-" + da[0] + "/" + "cmake-" + cmake_version + "-" + "rc3-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc4-" + da[0] + "/" + "cmake-" + cmake_version + "-" + "rc4-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + cmake_version + "-" + "rc5-" + da[0] + "/" + "cmake-" + cmake_version + "-" + "rc5-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + da[0] + "/" + "cmake-" + cmake_version + "-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc1-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc2-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc3-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc4-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc5-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc1-" + da[0] + "/" + "cmake-" + "v" + cmake_version + "-" + "rc1-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc2-" + da[0] + "/" + "cmake-" + "v" + cmake_version + "-" + "rc2-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc3-" + da[0] + "/" + "cmake-" + "v" + cmake_version + "-" + "rc3-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc4-" + da[0] + "/" + "cmake-" + "v" + cmake_version + "-" + "rc4-" + da[0] + da[2] + da[3])
+	cmake_exec_paths.append(cmake_path + "cmake-" + "v" + cmake_version + "-" + "rc5-" + da[0] + "/" + "cmake-" + "v" + cmake_version + "-" + "rc5-" + da[0] + da[2] + da[3])
+
+# For searching CMake download url
+func _update_cmake_urls(v: String) -> void:
+	var gh = "https://github.com/Kitware/CMake/releases/download/"
+	cmake_urls = []
+	cmake_urls.append(gh + "v" + cmake_version + "/%s" % ("cmake-" + cmake_version + "-" + da[0] + da[1]))
+	cmake_urls.append(gh + "v" + cmake_version + "-" + "rc5" + "/%s" % ("cmake-" + cmake_version + "-" + "rc5" + "-" + da[0] + da[1]))
+	cmake_urls.append(gh + "v" + cmake_version + "-" + "rc4" + "/%s" % ("cmake-" + cmake_version + "-" + "rc4" + "-" + da[0] + da[1]))
+	cmake_urls.append(gh + "v" + cmake_version + "-" + "rc3" + "/%s" % ("cmake-" + cmake_version + "-" + "rc3" + "-" + da[0] + da[1]))
+	cmake_urls.append(gh + "v" + cmake_version + "-" + "rc2" + "/%s" % ("cmake-" + cmake_version + "-" + "rc2" + "-" + da[0] + da[1]))
+	cmake_urls.append(gh + "v" + cmake_version + "-" + "rc1" + "/%s" % ("cmake-" + cmake_version + "-" + "rc1" + "-" + da[0] + da[1]))
+
+func _get_cmake_folders():
 	var files = []
 	var dir = Directory.new()
-	dir.open(path)
+	dir.open(cmake_path)
 	dir.list_dir_begin()
 
 	while true:
@@ -124,40 +175,18 @@ func _get_cmake_folders(path: String):
 	dir.list_dir_end()
 	return files
 
-# Manually update value of this variable to download the CMake version that you need
-# Ideally pick a version that is higher version than the minimum required version
-var cmake_version = "3.21.3"
-
-# ccrv: Current CMake Required Version
-var ccrv = "3.12"
-
-var cmake_version_name = "cmake-" + cmake_version + "-"
-var cmake_os = ["linux-x86_64", "macos-universal", "windows-x86_64"]
-var osi = {
-	"X11": [cmake_version_name + cmake_os[0] +".tar.gz", cmake_version_name + cmake_os[0] +"/bin", "/cmake"],
-	"OSX": [cmake_version_name + cmake_os[1] + ".tar.gz", cmake_version_name + cmake_os[1] + "/CMake.app/Contents/bin", "/cmake"],
-	"Windows": [cmake_version_name + cmake_os[2] + ".zip", cmake_version_name + cmake_os[2] + "/bin", "/cmake.exe"]
-}
-
-func _download_cmake():
-	yield(get_tree(), "idle_frame")
-
-	var da = osi.get(OS.get_name())
-	var cmake_path: String = OS.get_user_data_dir() + "/RtResources/CMake/"
-	var cmake_zip: String = cmake_path + da[0]
-	var cmake_exec: String = cmake_path + da[1] + da[2]
-	var cmake_ver = []
-
+func _check_cmake_version() -> bool:
 	# Check if CMake with the version cmake_version is already downloaded or not
-	if File.new().file_exists(cmake_exec):
-		if OS.execute(cmake_exec, ["--version"], true, cmake_ver) != 0:
-			return false
-		print("CMake executable found on host!")
+	_update_cmake_exec_paths(cmake_version)
+	for exec in cmake_exec_paths:
+		if File.new().file_exists(exec):
+			if OS.execute(exec, ["--version"], true) == 0:
+				return true
 	
 	# Check if CMake with any version exists on the host or not
-	var cmake_folders = _get_cmake_folders(cmake_path)
+	var cmake_folders = _get_cmake_folders()
 	if cmake_folders.size() > 0:
-		print("Finding highest CMake version found on host...")
+		print("Searching for CMake...")
 		# cchvp: Current CMake Highest Version Path (found on host)
 		# E.g. "cmake-3.21.3-windows-x86_64"
 		var cchvp
@@ -231,8 +260,15 @@ func _download_cmake():
 						break
 				else:
 					break
+		
+		# ccrv: Current CMake Required Version
+		# E.g. "3.12"
+		var ccrv = cmake_minimum_version
 
+		# ccrv_arr: cchr array
+		# E.g. [3, 12]
 		var ccrv_arr = ccrv.split(".")
+
 		while true:
 			if ccrv_arr.size() > cchvs_arr.size():
 				cchvs_arr.append("0")
@@ -241,7 +277,7 @@ func _download_cmake():
 			else:
 				break
 		
-		print("Checking if highest CMake version (found on host) is more updated version than the minimum required version...")
+		print("Comparing CMake versions...")
 		i = 0
 		j = 0
 		while true:
@@ -250,45 +286,82 @@ func _download_cmake():
 					i = i + 1
 					j = j + 1
 					continue
-				if int(ccrv_arr[i]) > int(cchvs_arr[j]):
-					print("Highest CMake version that was found on host is higher version than the minimum required CMake version!")
-					# Todo: Run "cmake --version" for confirmation
-					break
-				elif int(ccrv_arr[i]) < int(cchvs_arr[j]):
-					print("Highest CMake version that was found on host is lower version than the minimum required CMake version!")
-					# Todo: Upgrade cmake version (download)
-					#		Run "cmake --version" for confirmation
-					break
+				if int(ccrv_arr[i]) < int(cchvs_arr[j]):
+					print("Current CMake version higher than minimum required version")
+					var arr = [cmake_path + cchvp + da[2] + da[3], cmake_path + cchvp + "/" + cchvp + da[2] + da[3]]
+					for a in arr:
+						if OS.execute(a, ["--version"], true) == 0:
+							print("CMake exe found")
+							return true
+					return false
+				elif int(ccrv_arr[i]) > int(cchvs_arr[j]):
+					print("Current CMake version lower than minimum required version")
+					return false
 			else:
 				break
+	return false
 
+func _download_install_cmake() -> bool:
+	yield(get_tree(), "idle_frame")
 
-	else:
-		if ! File.new().file_exists(cmake_zip):
-			print("Downloading CMake zip...")
-			_request.download_file = cmake_zip + ".download"
-			if ! _request.request("https://github.com/Kitware/CMake/releases/download/v" + cmake_version + "/%s" % da[0]):
+	var temp_cmake = "temp_cmake"
+
+	var cmake_zip
+	var url_found = false
+
+	if ! File.new().file_exists(temp_cmake):
+		_request.download_file = temp_cmake + ".download"
+
+		_update_cmake_urls(cmake_version)
+		for url in cmake_urls:
+			if ! _request.request(url):
 				var ret = yield(_request, "request_completed")
+				if ret[1] == 200:
+					print("Download CMake...")
+					var x = url
+					x = x.split("/")
+					x = x[x.size()-1]
+
+					cmake_zip = cmake_path + x
+					url_found = true
+				elif ret[1] == 404:
+					continue
 				Directory.new().copy(_request.download_file, cmake_zip)
 				Directory.new().remove(_request.download_file)
+				if url_found:
+					break
 			else:
-				return null
-		
-		print("Downloaded CMake zip")
-		
-		print("Unzipping CMake zip...")
-		if ! Util.unzip(Util.user2abs(cmake_zip), cmake_path):
-			return null
-		
-		print("Unzipped CMake zip")
-		
-		print("Delete CMake zip")
-		Directory.new().remove(cmake_zip)
-
-		if OS.execute(cmake_exec, ["--version"], true, cmake_ver) != 0:
-			return false
-		
-		print("CMake has been downloaded and installed on host!")
+				return false
 	
-	print("%s" % cmake_ver.front())
-	return cmake_exec
+	if !url_found:
+		print("CMake version cmake_version not found / Incorrect URL")
+		return false
+
+	print("Unzip CMake...")
+	if ! Util.unzip(Util.user2abs(cmake_zip), cmake_path):
+		return false
+	
+	Directory.new().remove(cmake_zip)
+	
+	var exec_found = false
+	_update_cmake_exec_paths(cmake_version)
+	for exec in cmake_exec_paths:
+		if OS.execute(exec, ["--version"], true) == 0:
+			exec_found = true
+			break
+	
+	if !exec_found:
+		return false
+	
+	print("CMake has been downloaded and installed!")
+	return true
+
+func _auto_install_cmake() -> bool:
+	yield(get_tree(), "idle_frame")
+
+	if _check_cmake_version():
+		return true
+	
+	if yield(_download_install_cmake(), "completed"):
+		return true
+	return false
