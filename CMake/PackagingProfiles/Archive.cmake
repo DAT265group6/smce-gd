@@ -1,0 +1,14 @@
+include_guard ()
+
+
+if (WIN32)
+    set (CPACK_GENERATOR ZIP 7Z)
+else ()
+    set (CPACK_GENERATOR TXZ TGZ STGZ)
+endif ()
+
+set (CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}-${CPACK_SYSTEM_NAME}")
+
+if (MSVC)
+    string (APPEND CPACK_PACKAGE_FILE_NAME "-${CMAKE_BUILD_TYPE}")
+endif ()
