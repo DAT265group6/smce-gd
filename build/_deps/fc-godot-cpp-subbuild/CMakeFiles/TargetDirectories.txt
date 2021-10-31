@@ -1,0 +1,3 @@
+/Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-subbuild/CMakeFiles/rebuild_cache.dir
+/Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-subbuild/CMakeFiles/edit_cache.dir
+/Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-subbuild/CMakeFiles/fc-godot-cpp-populate.dir
