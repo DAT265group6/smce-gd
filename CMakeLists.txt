@@ -195,6 +195,34 @@ endif ()
 
 file (WRITE "${PROJECT_SOURCE_DIR}/project/share/version.txt" "${PROJECT_VERSION}${GODOT_DEBUG_ARG}")
 
+file (REMOVE_RECURSE "${PROJECT_BINARY_DIR}/packaging")
+file (MAKE_DIRECTORY "${PROJECT_BINARY_DIR}/packaging/include")
+file (COPY "${PROJECT_SOURCE_DIR}/include/gd" DESTINATION "${PROJECT_BINARY_DIR}/packaging/include")
+#install (DIRECTORY "${PROJECT_BINARY_DIR}/packaging/include" DESTINATION "." ${SMCE_COMPONENT_HEADERS})
+
+#install (FILES
+#        "${PROJECT_SOURCE_DIR}/LICENSE"
+#        "${SMCE_RESOURCES_ARK}"
+#        DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/SMCE"
+#        ${SMCE_COMPONENT_RTDATA}
+#        )
+
+#
+#if (CMAKE_CXX_SIMULATE_ID)
+#    set (SMCE_COMPILER_ID "${CMAKE_CXX_SIMULATE_ID}")
+#else ()
+#    set (SMCE_COMPILER_ID "${CMAKE_CXX_COMPILER_ID}")
+#endif ()
+
+set (CPACK_SYSTEM_NAME "${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}-${SMCE_COMPILER_ID}")
+
+set (CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
+set (CPACK_PACKAGE_VENDOR "ItJustWorksTM")
+set (CPACK_PACKAGE_CONTACT "${CPACK_PACKAGE_VENDOR} <itjustworkstm@aerostun.dev>")
+set (CMAKE_PROJECT_DESCRIPTION "A library to run your Arduino code on a desktop OS")
+set (CMAKE_PROJECT_HOMEPAGE_URL "https://github.com/ItJustWorksTM/libSMCE")
+set (CPACK_PACKAGE_DESCRIPTION "This cross-platform C++ library provides its consumers the ability\nto compile and execute Arduino sketches on a hosted environment, with bindings\nto its virtual I/O ports to allow the host application to interact with its\nchild sketches.")
+
 if (APPLE)
     set (CPACK_GENERATOR DragNDrop)
 elseif (WIN32)
@@ -202,4 +230,24 @@ elseif (WIN32)
 else ()
     set (CPACK_GENERATOR TGZ STGZ DEB)
 endif ()
+
+
+#if (WIN32)
+#    set (CPACK_GENERATOR ZIP 7Z)
+#else ()
+#    set (CPACK_GENERATOR TXZ TGZ STGZ)
+#endif ()
+
+#set (CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}-${CPACK_SYSTEM_NAME}")
+#
+#if (MSVC)
+#    string (APPEND CPACK_PACKAGE_FILE_NAME "-${CMAKE_BUILD_TYPE}")
+#endif ()
+
+#get_cmake_property (CPACK_COMPONENTS_ALL COMPONENTS)
+#list (REMOVE_ITEM CPACK_COMPONENTS_ALL "Unspecified")
+
 include (CPack)
+#
+#set(PREV_CMAKE_MSVC_RUNTIME_LIBRARY "${CMAKE_MSVC_RUNTIME_LIBRARY}")
+#set (CMAKE_MSVC_RUNTIME_LIBRARY "${PREV_CMAKE_MSVC_RUNTIME_LIBRARY}")
