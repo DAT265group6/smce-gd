@@ -27,6 +27,7 @@ onready var console: RichTextLabel = $Console
 onready var input: LineEdit = $Input
 
 var _uart = null
+var position = null
 
 func set_disabled(val: bool) -> void:
 	disabled = val
