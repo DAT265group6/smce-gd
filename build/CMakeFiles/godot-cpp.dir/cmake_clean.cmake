@@ -39,6 +39,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector2.cpp.o.d"
   "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.o"
   "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.o.d"
+  "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o"
+  "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o.d"
   "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o"
   "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o.d"
   "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o"

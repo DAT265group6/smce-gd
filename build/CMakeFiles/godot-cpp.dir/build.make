@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.21.2/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.21.4/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -349,10 +349,24 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/core/Vector3.cpp -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.s
 
+CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
+CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o: _deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp
+CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp
+
+CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp > CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.i
+
+CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.s
+
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o: _deps/fc-godot-cpp-src/src/gen/Camera.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Camera.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.i: cmake_force
@@ -366,7 +380,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.s: cmake_forc
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o: _deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.i: cmake_force
@@ -380,7 +394,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.s: cmake_
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o: _deps/fc-godot-cpp-src/src/gen/Control.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Control.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.i: cmake_force
@@ -394,7 +408,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.s: cmake_for
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o: _deps/fc-godot-cpp-src/src/gen/Environment.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Environment.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.i: cmake_force
@@ -408,7 +422,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Environment.cpp.s: cmake
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o: _deps/fc-godot-cpp-src/src/gen/Font.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Font.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.i: cmake_force
@@ -422,7 +436,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Font.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o: _deps/fc-godot-cpp-src/src/gen/Image.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Image.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.i: cmake_force
@@ -436,7 +450,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Image.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o: _deps/fc-godot-cpp-src/src/gen/InputEvent.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.i: cmake_force
@@ -450,7 +464,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEvent.cpp.s: cmake_
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o: _deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.i: cmake_force
@@ -464,7 +478,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventKey.cpp.s: cma
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o: _deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.cpp.i: cmake_force
@@ -478,7 +492,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/InputEventWithModifiers.
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o: _deps/fc-godot-cpp-src/src/gen/MainLoop.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.i: cmake_force
@@ -492,7 +506,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MainLoop.cpp.s: cmake_fo
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o: _deps/fc-godot-cpp-src/src/gen/Material.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Material.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.i: cmake_force
@@ -506,7 +520,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Material.cpp.s: cmake_fo
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o: _deps/fc-godot-cpp-src/src/gen/Mesh.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.i: cmake_force
@@ -520,7 +534,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Mesh.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o: _deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.i: cmake_force
@@ -534,7 +548,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiMesh.cpp.s: cmake_f
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o: _deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.i: cmake_force
@@ -548,7 +562,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/MultiplayerAPI.cpp.s: cm
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o: _deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer.cpp.i: cmake_force
@@ -562,7 +576,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/NetworkedMultiplayerPeer
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o: _deps/fc-godot-cpp-src/src/gen/Node.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Node.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.i: cmake_force
@@ -576,7 +590,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Node.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o: _deps/fc-godot-cpp-src/src/gen/Object.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Object.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.i: cmake_force
@@ -590,7 +604,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Object.cpp.s: cmake_forc
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o: _deps/fc-godot-cpp-src/src/gen/PackedScene.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.i: cmake_force
@@ -604,7 +618,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PackedScene.cpp.s: cmake
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o: _deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.i: cmake_force
@@ -618,7 +632,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PacketPeer.cpp.s: cmake_
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o: _deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceState.cpp.i: cmake_force
@@ -632,7 +646,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DDirectSpaceStat
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o: _deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParameters.cpp.i: cmake_force
@@ -646,7 +660,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Physics2DShapeQueryParam
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o: _deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.cpp.i: cmake_force
@@ -660,7 +674,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsDirectSpaceState.
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o: _deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParameters.cpp.i: cmake_force
@@ -674,7 +688,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/PhysicsShapeQueryParamet
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o: _deps/fc-godot-cpp-src/src/gen/Reference.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Reference.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.i: cmake_force
@@ -688,7 +702,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Reference.cpp.s: cmake_f
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o: _deps/fc-godot-cpp-src/src/gen/Resource.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Resource.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.i: cmake_force
@@ -702,7 +716,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Resource.cpp.s: cmake_fo
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o: _deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoader.cpp.i: cmake_force
@@ -716,7 +730,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceInteractiveLoade
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o: _deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.i: cmake_force
@@ -730,7 +744,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ResourceLoader.cpp.s: cm
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o: _deps/fc-godot-cpp-src/src/gen/SceneState.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.i: cmake_force
@@ -744,7 +758,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneState.cpp.s: cmake_
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o: _deps/fc-godot-cpp-src/src/gen/SceneTree.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.i: cmake_force
@@ -758,7 +772,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTree.cpp.s: cmake_f
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o: _deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.i: cmake_force
@@ -772,7 +786,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SceneTreeTimer.cpp.s: cm
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o: _deps/fc-godot-cpp-src/src/gen/Shader.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Shader.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.i: cmake_force
@@ -786,7 +800,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shader.cpp.s: cmake_forc
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o: _deps/fc-godot-cpp-src/src/gen/Shape.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Shape.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.i: cmake_force
@@ -800,7 +814,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Shape.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o: _deps/fc-godot-cpp-src/src/gen/Sky.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Sky.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.i: cmake_force
@@ -814,7 +828,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Sky.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o: _deps/fc-godot-cpp-src/src/gen/Spatial.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.i: cmake_force
@@ -828,7 +842,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Spatial.cpp.s: cmake_for
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o: _deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.i: cmake_force
@@ -842,7 +856,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/SpatialGizmo.cpp.s: cmak
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o: _deps/fc-godot-cpp-src/src/gen/StyleBox.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.i: cmake_force
@@ -856,7 +870,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/StyleBox.cpp.s: cmake_fo
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o: _deps/fc-godot-cpp-src/src/gen/Texture.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Texture.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.i: cmake_force
@@ -870,7 +884,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Texture.cpp.s: cmake_for
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o: _deps/fc-godot-cpp-src/src/gen/Theme.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Theme.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.i: cmake_force
@@ -884,7 +898,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Theme.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o: _deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.i: cmake_force
@@ -898,7 +912,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/TriangleMesh.cpp.s: cmak
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o: _deps/fc-godot-cpp-src/src/gen/Viewport.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.i: cmake_force
@@ -912,7 +926,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Viewport.cpp.s: cmake_fo
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o: _deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.i: cmake_force
@@ -926,7 +940,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ViewportTexture.cpp.s: c
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o: _deps/fc-godot-cpp-src/src/gen/World.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/World.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.i: cmake_force
@@ -940,7 +954,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World.cpp.s: cmake_force
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o: _deps/fc-godot-cpp-src/src/gen/World2D.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/World2D.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.i: cmake_force
@@ -954,7 +968,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/World2D.cpp.s: cmake_for
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o: _deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.cpp.i: cmake_force
@@ -968,7 +982,7 @@ CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_method_bindings.c
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o: CMakeFiles/godot-cpp.dir/flags.make
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o: _deps/fc-godot-cpp-src/src/gen/__register_types.cpp
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o: CMakeFiles/godot-cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o -MF CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o.d -o CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o -c /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp
 
 CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.i: cmake_force
@@ -1001,6 +1015,7 @@ godot__cpp_OBJECTS = \
 "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Variant.cpp.o" \
 "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector2.cpp.o" \
 "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.o" \
+"CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o" \
 "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o" \
 "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o" \
 "CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o" \
@@ -1070,6 +1085,7 @@ libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Transfo
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Variant.cpp.o
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector2.cpp.o
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.o
+libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Camera.cpp.o
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/CanvasItem.cpp.o
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/Control.cpp.o
@@ -1117,7 +1133,7 @@ libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__init_m
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/__register_types.cpp.o
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/build.make
 libgodot-cpp.a: CMakeFiles/godot-cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Linking CXX static library libgodot-cpp.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/weiguo/Desktop/smce-gd-group/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Linking CXX static library libgodot-cpp.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/godot-cpp.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/godot-cpp.dir/link.txt --verbose=$(VERBOSE)
 

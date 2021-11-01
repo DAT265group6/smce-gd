@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.21.2/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.21.4/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,37 +68,37 @@ CMAKE_BINARY_DIR = /Users/weiguo/Desktop/smce-gd-group/build
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -113,7 +113,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -123,7 +123,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cpack --config ./CPackSourceConfig.cmake /Users/weiguo/Desktop/smce-gd-group/build/CPackSourceConfig.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cpack --config ./CPackSourceConfig.cmake /Users/weiguo/Desktop/smce-gd-group/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -133,7 +133,7 @@ package_source/fast: package_source
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/cpack --config ./CPackConfig.cmake
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -143,7 +143,7 @@ package/fast: package
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/opt/homebrew/Cellar/cmake/3.21.2/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.21.4/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -699,6 +699,30 @@ _deps/fc-godot-cpp-src/src/core/Vector3.s: _deps/fc-godot-cpp-src/src/core/Vecto
 _deps/fc-godot-cpp-src/src/core/Vector3.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/godot-cpp.dir/build.make CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/core/Vector3.cpp.s
 .PHONY : _deps/fc-godot-cpp-src/src/core/Vector3.cpp.s
+
+_deps/fc-godot-cpp-src/src/gen/ArrayMesh.o: _deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o
+.PHONY : _deps/fc-godot-cpp-src/src/gen/ArrayMesh.o
+
+# target to build an object file
+_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/godot-cpp.dir/build.make CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o
+.PHONY : _deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.o
+
+_deps/fc-godot-cpp-src/src/gen/ArrayMesh.i: _deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.i
+.PHONY : _deps/fc-godot-cpp-src/src/gen/ArrayMesh.i
+
+# target to preprocess a source file
+_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/godot-cpp.dir/build.make CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.i
+.PHONY : _deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.i
+
+_deps/fc-godot-cpp-src/src/gen/ArrayMesh.s: _deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.s
+.PHONY : _deps/fc-godot-cpp-src/src/gen/ArrayMesh.s
+
+# target to generate assembly for a file
+_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/godot-cpp.dir/build.make CMakeFiles/godot-cpp.dir/_deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.s
+.PHONY : _deps/fc-godot-cpp-src/src/gen/ArrayMesh.cpp.s
 
 _deps/fc-godot-cpp-src/src/gen/Camera.o: _deps/fc-godot-cpp-src/src/gen/Camera.cpp.o
 .PHONY : _deps/fc-godot-cpp-src/src/gen/Camera.o
@@ -2049,6 +2073,9 @@ help:
 	@echo "... _deps/fc-godot-cpp-src/src/core/Vector3.o"
 	@echo "... _deps/fc-godot-cpp-src/src/core/Vector3.i"
 	@echo "... _deps/fc-godot-cpp-src/src/core/Vector3.s"
+	@echo "... _deps/fc-godot-cpp-src/src/gen/ArrayMesh.o"
+	@echo "... _deps/fc-godot-cpp-src/src/gen/ArrayMesh.i"
+	@echo "... _deps/fc-godot-cpp-src/src/gen/ArrayMesh.s"
 	@echo "... _deps/fc-godot-cpp-src/src/gen/Camera.o"
 	@echo "... _deps/fc-godot-cpp-src/src/gen/Camera.i"
 	@echo "... _deps/fc-godot-cpp-src/src/gen/Camera.s"

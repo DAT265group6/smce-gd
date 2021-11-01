@@ -233,11 +233,10 @@ CMakeFiles/godot-smce.dir/src/bind/BoardConfig.cxx.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/istream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/ostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/bitset \
-  /usr/local/include/SMCE/SMCE_iface.h \
+  /usr/local/include/SMCE/SMCE_iface.h /usr/local/include/SMCE/fwd.hpp \
   /usr/local/include/SMCE/BoardView.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/span \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/array \
-  /usr/local/include/SMCE/fwd.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Godot.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/godot-headers/gdnative_api_struct.gen.h \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/godot-headers/gdnative/gdnative.h \
@@ -293,7 +292,6 @@ CMakeFiles/godot-smce.dir/src/bind/BoardConfig.cxx.o: \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Rect2.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Transform.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Transform2D.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/iostream \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Wrapped.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Ref.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/gen/Reference.hpp \

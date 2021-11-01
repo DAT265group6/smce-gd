@@ -235,6 +235,7 @@ CMakeFiles/godot-smce.dir/src/bind/Sketch.cxx.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/variant \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/array \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/vector \
+  /usr/local/include/SMCE/PluginManifest.hpp \
   /usr/local/include/SMCE/fwd.hpp /usr/local/include/SMCE/Uuid.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Godot.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/godot-headers/gdnative_api_struct.gen.h \
@@ -291,7 +292,6 @@ CMakeFiles/godot-smce.dir/src/bind/Sketch.cxx.o: \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Rect2.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Transform.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Transform2D.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/iostream \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Wrapped.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/core/Ref.hpp \
   /Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src/include/gen/Reference.hpp \

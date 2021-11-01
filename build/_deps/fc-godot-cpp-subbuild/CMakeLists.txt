@@ -1,7 +1,7 @@
 # Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
 # file Copyright.txt or https://cmake.org/licensing for details.
 
-cmake_minimum_required(VERSION 3.21.2)
+cmake_minimum_required(VERSION 3.21.4)
 
 # We name the project and the target for the ExternalProject_Add() call
 # to something that will highlight to the user what we are working on if
@@ -20,7 +20,7 @@ set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
 
 include(ExternalProject)
 ExternalProject_Add(fc-godot-cpp-populate
-                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/godotengine/godot-cpp.git" "GIT_TAG" "3.2"
+                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/godotengine/godot-cpp.git" "GIT_TAG" "3.x" "GIT_SHALLOW" "1"
                     SOURCE_DIR          "/Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src"
                     BINARY_DIR          "/Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-build"
                     CONFIGURE_COMMAND   ""

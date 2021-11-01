@@ -38,28 +38,20 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  find_program (GODOT_EXECUTABLE NAMES godot3-headless godot-headless godot3-server godot-server godot3 godot REQUIRED)
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   
-        execute_process (COMMAND "/Applications/godot.app/Contents/MacOS/Godot" --no-window --export "macos" "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot"
+        execute_process (COMMAND "${GODOT_EXECUTABLE}" --no-window --export "macos" "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot"
                          WORKING_DIRECTORY "/Users/weiguo/Desktop/smce-gd-group/project")
         if (NOT EXISTS "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot")
             message (FATAL_ERROR "Godot export failure")
         endif ()
-        execute_process (COMMAND "/opt/homebrew/Cellar/cmake/3.21.2/bin/cmake" -E tar xf "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot"
+        execute_process (COMMAND "/opt/homebrew/Cellar/cmake/3.21.4/bin/cmake" -E tar xf "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot"
                          WORKING_DIRECTORY "/Users/weiguo/Desktop/smce-gd-group/build/export")
         execute_process (COMMAND defaults write "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot.app/Contents/Info.plist" LSEnvironment -dict PATH "/bin:/usr/bin:/usr/local/bin:/opt/homebrew/bin:")
     
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot.app/Contents/Frameworks/libSMCE.1.dylib")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  file(INSTALL DESTINATION "/Users/weiguo/Desktop/smce-gd-group/build/export/SMCE-Godot.app/Contents/Frameworks" TYPE FILE FILES "/Users/weiguo/Desktop/smce-gd-group/build/libSMCE.1.dylib")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

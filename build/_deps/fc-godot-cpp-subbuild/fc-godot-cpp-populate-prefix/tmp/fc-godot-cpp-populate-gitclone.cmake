@@ -17,7 +17,7 @@ set(error_code 1)
 set(number_of_tries 0)
 while(error_code AND number_of_tries LESS 3)
   execute_process(
-    COMMAND "/opt/homebrew/bin/git"  clone --no-checkout --config "advice.detachedHead=false" "https://github.com/godotengine/godot-cpp.git" "fc-godot-cpp-src"
+    COMMAND "/opt/homebrew/bin/git"  clone --no-checkout --depth 1 --no-single-branch --config "advice.detachedHead=false" "https://github.com/godotengine/godot-cpp.git" "fc-godot-cpp-src"
     WORKING_DIRECTORY "/Users/weiguo/Desktop/smce-gd-group/build/_deps"
     RESULT_VARIABLE error_code
     )
@@ -32,12 +32,12 @@ if(error_code)
 endif()
 
 execute_process(
-  COMMAND "/opt/homebrew/bin/git"  checkout 3.2 --
+  COMMAND "/opt/homebrew/bin/git"  checkout 3.x --
   WORKING_DIRECTORY "/Users/weiguo/Desktop/smce-gd-group/build/_deps/fc-godot-cpp-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to checkout tag: '3.2'")
+  message(FATAL_ERROR "Failed to checkout tag: '3.x'")
 endif()
 
 set(init_submodules TRUE)
