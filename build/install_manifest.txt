@@ -1,6 +1,0 @@
-/Users/weiguo/Desktop/smce-gd-group/build/_CPack_Packages/Darwin-arm64-AppleClang/STGZ/smce_gd-1.3.2-Darwin-arm64-AppleClang-GodotRelease/SMCE-Godot.app/Contents/MacOS/SMCE-Godot
-/Users/weiguo/Desktop/smce-gd-group/build/_CPack_Packages/Darwin-arm64-AppleClang/STGZ/smce_gd-1.3.2-Darwin-arm64-AppleClang-GodotRelease/SMCE-Godot.app/Contents/Resources/icon.icns
-/Users/weiguo/Desktop/smce-gd-group/build/_CPack_Packages/Darwin-arm64-AppleClang/STGZ/smce_gd-1.3.2-Darwin-arm64-AppleClang-GodotRelease/SMCE-Godot.app/Contents/Resources/SMCE-Godot.pck
-/Users/weiguo/Desktop/smce-gd-group/build/_CPack_Packages/Darwin-arm64-AppleClang/STGZ/smce_gd-1.3.2-Darwin-arm64-AppleClang-GodotRelease/SMCE-Godot.app/Contents/Frameworks/libgodot-smce.so
-/Users/weiguo/Desktop/smce-gd-group/build/_CPack_Packages/Darwin-arm64-AppleClang/STGZ/smce_gd-1.3.2-Darwin-arm64-AppleClang-GodotRelease/SMCE-Godot.app/Contents/Info.plist
-/Users/weiguo/Desktop/smce-gd-group/build/_CPack_Packages/Darwin-arm64-AppleClang/STGZ/smce_gd-1.3.2-Darwin-arm64-AppleClang-GodotRelease/SMCE-Godot.app/Contents/PkgInfo
