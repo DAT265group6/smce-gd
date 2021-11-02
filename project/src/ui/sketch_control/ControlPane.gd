@@ -324,10 +324,20 @@ func OnOffScreenToggle():
 	else:
 		deactivate_pixel(5, 3)
 
+func _process(time: float) -> void:
+	if($PanelContainer.visible):
+		print("This does not work...")
+		# var view: BoardView = _board.view()
+		# var fb: FrameBuffer = view.framebuffers(1)
+		# var img: Image = Image.new()
+		# var img_tex: ImageTexture = ImageTexture.new()
+		# fb.read_rgb888(img)
+		# img_tex.create_from_image(img)
+		# var pixel: Panel = get_node(NodePath("PanelContainer/ColumnsContainer/RowsContainer2/" + "Panel2"))
+		# pixel.texture = img_tex
 
 func _on_reset_pos() -> void:
 	reset_vehicle_pos()
-
 
 func _on_start() -> void:
 	$ShowHideScreenToggle.visible = true

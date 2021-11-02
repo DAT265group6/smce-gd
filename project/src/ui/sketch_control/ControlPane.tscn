@@ -481,12 +481,11 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
 custom_styles/panel = SubResource( 16 )
 
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
+[node name="Panel2" type="TextureRect" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
 margin_top = 21.0
 margin_right = 20.0
 margin_bottom = 41.0
 rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
 
 [node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
 margin_top = 42.0
