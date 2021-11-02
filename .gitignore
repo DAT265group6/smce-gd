@@ -16,3 +16,7 @@ project/share/RtResources
 project/share/version.txt
 godot.log
 *.png~
+
+*.import
+
+build/
