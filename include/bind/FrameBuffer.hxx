@@ -47,6 +47,7 @@ class FrameBuffer : public Reference {
     int get_height() noexcept;
     int get_freq() noexcept;
     bool write_rgb888(Ref<Image> img);
+    bool read_rgb888(Ref<Image> img);
 };
 }; // namespace godot
 
