@@ -30,6 +30,7 @@ void FrameBuffer::_register_methods() {
     register_method("get_height", &FrameBuffer::get_height);
     register_method("get_freq", &FrameBuffer::get_freq);
     register_method("write_rgb888", &FrameBuffer::write_rgb888);
+    register_method("read_rgb888", &FrameBuffer::read_rgb888);
 }
 
 bool FrameBuffer::exists() { return frame_buf.exists(); }
