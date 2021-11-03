@@ -17,45 +17,11 @@
 
 include_guard ()
 
-#find_package (SMCE 1.4 REQUIRED)
-#add_library(SMCE 1.4 INTERFACE)
-#add_library (SMCE_Boost INTERFACE)
-#if ("${SMCE_BOOST_LINKING}" STREQUAL "STATIC")
-#    set (Boost_USE_STATIC_LIBS True)
-#else ()
-#    set (Boost_USE_STATIC_LIBS False)
-#endif ()
-
-#if (MSVC)
-#    find_package (Boost 1.74 COMPONENTS atomic filesystem date_time)
-#else ()
-#    find_package (Boost 1.74 COMPONENTS atomic filesystem)
-#endif ()
-
-#if(NOT SMCE_ROOT)
-#
-#endif()
-#find_package (SMCE 1.4 REQUIRED)
-if(TRUE)
-#    message ("libSMCE found")
-#    set (SMCE_TARGET SMCE::SMCE)
-#    option (SMCE_LINK_STATIC "Link to libSMCE statically" Off)
-#
-#    if (SMCEGD_SMCE_LINKING STREQUAL "STATIC")
-#        if (NOT TARGET SMCE::SMCE_static)
-#            message ("--- libSMCE static library not installed")
-#        endif ()
-#        set (SMCE_TARGET SMCE::SMCE_static)
-#        message (STATUS "libSMCE statically linked")
-#    endif ()
-#
-#    if (APPLE)
-#        set (CMAKE_BUILD_RPATH "@loader_path/../Frameworks;${CMAKE_BUILD_RPATH}")
-#        set (CMAKE_INSTALL_RPATH "@loader_path/../Frameworks;${CMAKE_INSTALL_RPATH}")
-#    endif ()
-#
-#else()
+find_package (SMCE 1.4 REQUIRED)
+if(NOT SMCE_FOUND)
     message("libsmce are not int your computer, autoinstalling")
+
+    # set the libSMCE version and the target file basename
     set (SMCE_EXPECTED_TAG 1.4.0)
     set (SMCE_EXPECTED_VERSION 1.4)
     set (SMCE_EXPECTED_ARCH x86_64)
@@ -63,11 +29,14 @@ if(TRUE)
     if (MSVC)
         string (APPEND SMCE_BASENAME "-Release")
     endif ()
+
+    # target filename and decide where to put it
     set (SMCE_ARK_FILENAME "${SMCE_BASENAME}.tar.gz")
     set (SMCE_ROOT "${CMAKE_CURRENT_BINARY_DIR}/smce-autodl")
     file (MAKE_DIRECTORY "${SMCE_ROOT}")
-    message("libSMCE-${SMCE_EXPECTED_VERSION}-${CMAKE_SYSTEM_NAME}-${SMCE_EXPECTED_ARCH}-${CMAKE_CXX_COMPILER_ID}")
-#    message()
+#DEBUG    message("libSMCE-${SMCE_EXPECTED_VERSION}-${CMAKE_SYSTEM_NAME}-${SMCE_EXPECTED_ARCH}-${CMAKE_CXX_COMPILER_ID}")
+
+    # download sha512.txt from github
     file (DOWNLOAD "https://github.com/ItJustWorksTM/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/sha512.txt"
                 "${SMCE_ROOT}/sha512.txt"
                 TLS_VERIFY ON)
@@ -81,6 +50,8 @@ if(TRUE)
                 break ()
         endif ()
     endforeach ()
+
+    # downlaod the zip file from github and make it in the corresponding dir
    file (DOWNLOAD "https://github.com/ItJustWorksTM/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/${SMCE_ARK_FILENAME}"
             "${SMCE_ROOT}/${SMCE_ARK_FILENAME}"
             SHOW_PROGRESS
@@ -95,11 +66,12 @@ if(TRUE)
     target_include_directories (SMCE INTERFACE "${SMCE_ROOT}/include")
     message(${CMAKE_STATIC_LIBRARY_SUFFIX})
 
+    # make the target to the libSMCE_static.a
     set_property (TARGET SMCE PROPERTY IMPORTED_LOCATION "${SMCE_ROOT}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}SMCE_static${CMAKE_STATIC_LIBRARY_SUFFIX}")
+    set(SMCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}/lib/cmake/SMCE")
 endif()
 
-set(SMCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}/lib/cmake/SMCE")
-#message("${CMAKE_PREFIX_PATH}")
+# refind the package and output the dir to make sure it used the download one
 find_package (SMCE 1.4 REQUIRED)
 message("${SMCE_DIR}")
 message ("libSMCE found")
@@ -156,3 +128,22 @@ endif ()
 #    add_subdirectory ("${libsmce_SOURCE_DIR}" "${libsmce_BINARY_DIR}" EXCLUDE_FROM_ALL)
 #endif ()
 
+
+#find_package (SMCE 1.4 REQUIRED)
+#add_library(SMCE 1.4 INTERFACE)
+#add_library (SMCE_Boost INTERFACE)
+#if ("${SMCE_BOOST_LINKING}" STREQUAL "STATIC")
+#    set (Boost_USE_STATIC_LIBS True)
+#else ()
+#    set (Boost_USE_STATIC_LIBS False)
+#endif ()
+
+#if (MSVC)
+#    find_package (Boost 1.74 COMPONENTS atomic filesystem date_time)
+#else ()
+#    find_package (Boost 1.74 COMPONENTS atomic filesystem)
+#endif ()
+
+#if(NOT SMCE_ROOT)
+#
+#endif()
