@@ -24,7 +24,7 @@ if(TRUE)
     # set the libSMCE version and the target file basename
     set (SMCE_EXPECTED_TAG 1.4.0)
     set (SMCE_EXPECTED_VERSION 1.4)
-    set (SMCE_EXPECTED_ARCH x86_64)
+    set (SMCE_EXPECTED_ARCH AMD64)
     set (SMCE_BASENAME "libSMCE-${SMCE_EXPECTED_VERSION}-${CMAKE_SYSTEM_NAME}-${SMCE_EXPECTED_ARCH}-${CMAKE_CXX_COMPILER_ID}")
     if (MSVC)
         string (APPEND SMCE_BASENAME "-Release")
