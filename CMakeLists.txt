@@ -70,6 +70,7 @@ target_sources (godot-smce PRIVATE
         src/bind/FrameBuffer.cxx)
 
 target_include_directories (godot-smce PUBLIC include)
+#target_link_libraries (godot-smce PUBLIC godot-cpp SMCE fmt::fmt)
 target_link_libraries (godot-smce PUBLIC godot-cpp ${SMCE_TARGET})
 
 if (NOT CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
