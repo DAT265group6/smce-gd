@@ -17,8 +17,8 @@
 
 include_guard ()
 
-find_package (SMCE 1.4 REQUIRED)
-if(NOT SMCE_FOUND)
+#find_package (SMCE 1.4 REQUIRED)
+if(TRUE)
     message("libsmce are not int your computer, autoinstalling")
 
     # set the libSMCE version and the target file basename
@@ -31,7 +31,7 @@ if(NOT SMCE_FOUND)
     endif ()
 
     # target filename and decide where to put it
-    set (SMCE_ARK_FILENAME "${SMCE_BASENAME}.tar.gz")
+    set (SMCE_ARK_FILENAME "${SMCE_BASENAME}.zip")
     set (SMCE_ROOT "${CMAKE_CURRENT_BINARY_DIR}/smce-autodl")
     file (MAKE_DIRECTORY "${SMCE_ROOT}")
 #DEBUG    message("libSMCE-${SMCE_EXPECTED_VERSION}-${CMAKE_SYSTEM_NAME}-${SMCE_EXPECTED_ARCH}-${CMAKE_CXX_COMPILER_ID}")
