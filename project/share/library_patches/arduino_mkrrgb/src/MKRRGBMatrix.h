@@ -20,8 +20,8 @@
 #ifndef _MKR_RGB_MATRIX_H
 #define _MKR_RGB_MATRIX_H
 
+#include <ArduinoGraphics.h>
 #include <MkrRgb.h>
-#include "../../../ArduinoGraphics/ArduinoGraphics-1.0.0/src/ArduinoGraphics.h"
 
 #define RGB_MATRIX_WIDTH 12
 #define RGB_MATRIX_HEIGHT 7

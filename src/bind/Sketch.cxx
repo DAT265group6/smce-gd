@@ -34,6 +34,8 @@ void Sketch::_register_methods() {
 #undef U
 
 void Sketch::init(String src, String home_dir) {
+    std::vector<std::string> mkrrgb_depends;
+    mkrrgb_depends.push_back(std::string("ArduinoGraphics"));
     sketch = smce::Sketch{
         std_str(src),
         {.fqbn = "arduino:sam:arduino_due_x",
@@ -54,10 +56,14 @@ void Sketch::init(String src, String home_dir) {
                  .name = "ArduinoGraphics",
                  .version = "1.0.0",
                  .uri = "https://github.com/arduino-libraries/ArduinoGraphics/archive/refs/tags/1.0.0.tar.gz",
+                 .patch_uri = "file://" + (std::filesystem::absolute(std_str(home_dir)) / "library_patches" /
+                                           "arduino_graphics")
+                                              .generic_string(),
                  .defaults = smce::PluginManifest::Defaults::arduino},
              smce::PluginManifest{
                  .name = "Arduino_MKRRGB",
                  .version = "1.0.0",
+                 .depends = mkrrgb_depends,
                  .uri = "https://github.com/arduino-libraries/Arduino_MKRRGB/archive/refs/tags/1.0.0.tar.gz",
                  .patch_uri = "file://" + (std::filesystem::absolute(std_str(home_dir)) / "library_patches" /
                                            "arduino_mkrrgb")
