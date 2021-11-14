@@ -54,10 +54,15 @@ bool FrameBuffer::write_rgb888(Ref<Image> img) {
 }
 
 bool FrameBuffer::read_rgb888(Ref<Image> img) {
+    // If the frame buffer hasn't yet been configured, return false
+    if (!frame_buf.exists())
+        return false;
+    if (frame_buf.get_width() == 0)
+        return false;
+
     // Reserve space for Width * Height * 3 bytes
     const std::size_t array_size = get_width() * get_height() * 3;
-    std::vector<std::byte> byte_span;
-    byte_span.reserve(array_size);
+    std::vector<std::byte> byte_span(array_size);
 
     // Read RGB888 values from the frame buffer
     if (!frame_buf.read_rgb888(byte_span))

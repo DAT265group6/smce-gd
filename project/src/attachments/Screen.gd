@@ -51,21 +51,19 @@ func _on_frame() -> void:
 
 # This method adds the attachment visualizer to the control panel
 func visualize() -> Control:
-	var image = Image.new()
-	if ! view.framebuffers(key).read_rgb888(image):
-		var error_vis = Label.new()
-		error_vis.text = "Can't read from FrameBuffer"
-		return error_vis
-    
-	# This does not work, and I don't know why
-	var visualizer = TextureRect.new()
-	visualizer.set_name("Screen Visualizer")
+	var visualizer = ScreenVisualizer.new()
 	visualizer.rect_min_size.x = 120
 	visualizer.rect_min_size.y = 70
-	# visualizer.set_size(Vector2(120, 70))
-	var texture = ImageTexture.new()
-	texture.create_from_image(image)
-	visualizer.texture = texture
+	visualizer.display_node(self, "create_texture")
+    # This part should probably move to ScreenVisualizer class and be rethought somehow...
 	visualizer.rect_scale = Vector2(10, 10)
 	return visualizer
 
+func create_texture() -> ImageTexture:
+	var image = Image.new()
+	if ! view.framebuffers(key).read_rgb888(image):
+		return null
+	
+	var texture = ImageTexture.new()
+	texture.create_from_image(image)
+	return texture

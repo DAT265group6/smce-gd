@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/ui/node_visualizer/NodeVisualizer.gd"
 }, {
+"base": "TextureRect",
+"class": "ScreenVisualizer",
+"language": "GDScript",
+"path": "res://src/ui/node_visualizer/ScreenVisualizer.gd"
+}, {
 "base": "VBoxContainer",
 "class": "NotificationDisplay",
 "language": "GDScript",
