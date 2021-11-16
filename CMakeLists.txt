@@ -35,30 +35,44 @@ set (CMAKE_CXX_STANDARD_REQUIRED ON)
 set (CMAKE_CXX_EXTENSIONS OFF)
 set (CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-find_package (Threads REQUIRED)
-find_package (SMCE 1.4 REQUIRED)
 
-set (SMCE_TARGET SMCE::SMCE)
-if (SMCEGD_SMCE_LINKING STREQUAL "STATIC")
-    if (NOT TARGET SMCE::SMCE_static)
-        message (FATAL_ERROR "Static link requested but libSMCE static library not installed")
-    endif ()
-    set (SMCE_TARGET SMCE::SMCE_static)
-    message (STATUS "libSMCE statically linked")
-endif ()
+find_package(Threads REQUIRED)
 
-if (APPLE)
-    set (CMAKE_BUILD_RPATH "@loader_path/../Frameworks;${CMAKE_BUILD_RPATH}")
-    set (CMAKE_INSTALL_RPATH "@loader_path/../Frameworks;${CMAKE_INSTALL_RPATH}")
-endif ()
+#find_package(SMCE 1.4 REQUIRED)
+#
+#option (SMCE_LINK_STATIC "Link to libSMCE statically" Off)
+#
+#set (SMCE_TARGET SMCE::SMCE)
+#if (SMCE_LINK_STATIC)
+#    if (NOT TARGET SMCE::SMCE_static)
+#        message (FATAL_ERROR "Static link requested but libSMCE static library not installed")
+#    endif ()
+#    set (SMCE_TARGET SMCE::SMCE_static)
+#    message(STATUS "libSMCE statically linked")
+#endif ()
+#
+#if (APPLE)
+#    set(CMAKE_BUILD_RPATH "@loader_path/../Frameworks;${CMAKE_BUILD_RPATH}")
+#    set(CMAKE_INSTALL_RPATH "@loader_path/../Frameworks;${CMAKE_INSTALL_RPATH}")
+#endif()
+
+
+
 
 include (CheckIPOSupported)
 check_ipo_supported (RESULT CMAKE_IPO_SUPPORTED LANGUAGES CXX)
 set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ${CMAKE_IPO_SUPPORTED})
 
+
+list (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake/Modules")
+include(SetupSMCE)
+
+
 include (FetchContent)
 list (APPEND GDCPP_NEEDED_CLASSES Reference Node Resource _ResourceLoader)
 include (SetupGodotCpp)
+
+
 
 add_library (godot-smce MODULE)
 target_sources (godot-smce PRIVATE
@@ -73,6 +87,7 @@ target_sources (godot-smce PRIVATE
 )
 
 target_include_directories (godot-smce PUBLIC include)
+#target_link_libraries (godot-smce PUBLIC godot-cpp SMCE fmt::fmt)
 target_link_libraries (godot-smce PUBLIC godot-cpp ${SMCE_TARGET})
 
 if (NOT CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
@@ -130,7 +145,8 @@ if (SMCEGD_BUNDLE_DEPS)
     )
 endif ()
 
-install (CODE "find_program (GODOT_EXECUTABLE NAMES godot3-headless godot-headless godot3-server godot-server godot3 godot REQUIRED)")
+install (CODE "find_program (GODOT_EXECUTABLE NAMES godot3-headless godot3-server godot3 godot REQUIRED)")
+
 if (NOT APPLE)
     install (CODE "
         execute_process (COMMAND \"\${GODOT_EXECUTABLE}\" --no-window --export${GODOT_DEBUG_ARG} \"${GODOT_PLATFORM}\" \"${PROJECT_BINARY_DIR}/export/smce_gd${CMAKE_EXECUTABLE_SUFFIX}\" WORKING_DIRECTORY \"${CMAKE_SOURCE_DIR}/project\")
