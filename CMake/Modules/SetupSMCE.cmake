@@ -17,17 +17,10 @@
 
 include_guard ()
 
-<<<<<<< HEAD
-find_package (SMCE 1.4 REQUIRED)
-# for testing, can change it to SMCE_FOUND, then even it found the smce 1.4
-# still will install the library
-if(SMCE_FOUND)
-    message("libsmce are not int your computer, autoinstalling")
-=======
 find_package (SMCE 1.4)
+# for testing you can set it to if(SMCE_FOUND)
 if(NOT SMCE_FOUND)
     message("libSMCE not found, downloading and installing...")
->>>>>>> 35dcdbb8cb07a5ad29cab071d3a689a274ae87c4
 
     # set the libSMCE version and the target file basename
     set (SMCE_EXPECTED_TAG 1.4.0)
@@ -85,16 +78,11 @@ if(NOT SMCE_FOUND)
     set_property (TARGET SMCE PROPERTY IMPORTED_LOCATION "${SMCE_ROOT}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}SMCE_static${CMAKE_STATIC_LIBRARY_SUFFIX}")
     set(SMCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}/lib/cmake/SMCE")
     message ("libSMCE installed in ${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}")
-    find_package (SMCE 1.4 REQUIRED)
 endif()
-
 # refind the package and output the dir to make sure it used the download one
-<<<<<<< HEAD
 find_package (SMCE 1.4 REQUIRED)
 #message("${SMCE_DIR}")
 #message ("libSMCE found")
-=======
->>>>>>> 35dcdbb8cb07a5ad29cab071d3a689a274ae87c4
 set (SMCE_TARGET SMCE::SMCE)
 option (SMCE_LINK_STATIC "Link to libSMCE statically" Off)
 
