@@ -17,21 +17,34 @@
 
 include_guard ()
 
-#find_package (SMCE 1.4 REQUIRED)
-if(TRUE)
+find_package (SMCE 1.4 REQUIRED)
+# for testing, can change it to SMCE_FOUND, then even it found the smce 1.4
+# still will install the library
+if(SMCE_FOUND)
     message("libsmce are not int your computer, autoinstalling")
 
     # set the libSMCE version and the target file basename
     set (SMCE_EXPECTED_TAG 1.4.0)
     set (SMCE_EXPECTED_VERSION 1.4)
-    set (SMCE_EXPECTED_ARCH AMD64)
+    if(UNIX)
+        set (SMCE_EXPECTED_ARCH x86_64)
+    # for windows
+    else()
+        set (SMCE_EXPECTED_ARCH AMD64)
+    endif()
+
     set (SMCE_BASENAME "libSMCE-${SMCE_EXPECTED_VERSION}-${CMAKE_SYSTEM_NAME}-${SMCE_EXPECTED_ARCH}-${CMAKE_CXX_COMPILER_ID}")
     if (MSVC)
         string (APPEND SMCE_BASENAME "-Release")
     endif ()
 
     # target filename and decide where to put it
-    set (SMCE_ARK_FILENAME "${SMCE_BASENAME}.zip")
+    if(UNIX)
+        set (SMCE_ARK_FILENAME "${SMCE_BASENAME}.tar.gz")
+    else()
+        set (SMCE_ARK_FILENAME "${SMCE_BASENAME}.zip")
+    endif()
+
     set (SMCE_ROOT "${CMAKE_CURRENT_BINARY_DIR}/smce-autodl")
     file (MAKE_DIRECTORY "${SMCE_ROOT}")
 #DEBUG    message("libSMCE-${SMCE_EXPECTED_VERSION}-${CMAKE_SYSTEM_NAME}-${SMCE_EXPECTED_ARCH}-${CMAKE_CXX_COMPILER_ID}")
@@ -73,8 +86,8 @@ endif()
 
 # refind the package and output the dir to make sure it used the download one
 find_package (SMCE 1.4 REQUIRED)
-message("${SMCE_DIR}")
-message ("libSMCE found")
+#message("${SMCE_DIR}")
+#message ("libSMCE found")
 set (SMCE_TARGET SMCE::SMCE)
 option (SMCE_LINK_STATIC "Link to libSMCE statically" Off)
 
@@ -90,60 +103,3 @@ if (APPLE)
     set (CMAKE_BUILD_RPATH "@loader_path/../Frameworks;${CMAKE_BUILD_RPATH}")
     set (CMAKE_INSTALL_RPATH "@loader_path/../Frameworks;${CMAKE_INSTALL_RPATH}")
 endif ()
-
-#    file (GLOB WA_BOOST_LIBS LIST_DIRECTORIES false "${SMCE_ROOT}/lib64/boost/*")
-#    message ("Found the following Boost workaround libs: ${WA_BOOST_LIBS}")
-#    if (WA_BOOST_LIBS)
-#        add_library (WA_Boost INTERFACE)
-#        foreach (WA_BLIB ${WA_BOOST_LIBS})
-#            if (IS_SYMLINK "${WA_BOOST_LIBS}")
-#                message (FATAL_ERROR "Workaround Boost lib \"${WA_BLIB}\" is a symlink")
-#            elseif (IS_DIRECTORY "${WA_BOOST_LIBS}")
-#                message (FATAL_ERROR "Workaround Boost lib \"${WA_BLIB}\" is a directory")
-#            endif ()
-#            target_link_libraries (WA_Boost INTERFACE "${WA_BLIB}")
-#        endforeach ()
-#        target_link_libraries (SMCE INTERFACE WA_Boost)
-#    endif ()
-#endif()
-
-#include (FetchContent)
-#message ("--- Downloading libsmce")
-#FetchContent_Declare (libsmce
-#        GIT_REPOSITORY "https://github.com/ItJustWorksTM/libSMCE"
-#        GIT_TAG v1.4.0
-#        GIT_SHALLOW On)
-#FetchContent_GetProperties (libsmce)
-#if (NOT libsmce_POPULATED)
-#    FetchContent_Populate (libsmce)
-#    message ("--- populated libsmce")
-#    file (READ "${libsmce_SOURCE_DIR}/CMakeLists.txt" libsmce_cmakelists)
-#    string (REPLACE "add_dependencies (SMCE ArdRtRes)" "add_dependencies (SMCE_static ArdRtRes)" libsmce_cmakelists "${libsmce_cmakelists}")
-#    file (WRITE "${libsmce_SOURCE_DIR}/CMakeLists.txt" "${libsmce_cmakelists}")
-#
-#    set (SMCE_BUILD_SHARED Off CACHE INTERNAL "")
-#    set (SMCE_BUILD_STATIC On CACHE INTERNAL "")
-#    set (SMCE_CXXRT_LINKING "STATIC" CACHE INTERNAL "")
-#    set (SMCE_BOOST_LINKING "${PYSMCE_BOOST_LINKING}" CACHE INTERNAL "")
-#    add_subdirectory ("${libsmce_SOURCE_DIR}" "${libsmce_BINARY_DIR}" EXCLUDE_FROM_ALL)
-#endif ()
-
-
-#find_package (SMCE 1.4 REQUIRED)
-#add_library(SMCE 1.4 INTERFACE)
-#add_library (SMCE_Boost INTERFACE)
-#if ("${SMCE_BOOST_LINKING}" STREQUAL "STATIC")
-#    set (Boost_USE_STATIC_LIBS True)
-#else ()
-#    set (Boost_USE_STATIC_LIBS False)
-#endif ()
-
-#if (MSVC)
-#    find_package (Boost 1.74 COMPONENTS atomic filesystem date_time)
-#else ()
-#    find_package (Boost 1.74 COMPONENTS atomic filesystem)
-#endif ()
-
-#if(NOT SMCE_ROOT)
-#
-#endif()
