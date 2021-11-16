@@ -1,5 +1,5 @@
 #
-#  UserConfigVars.cmake
+#  SetupSMCE.cmake
 #  Copyright 2021 ItJustWorksTM
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,11 +17,17 @@
 
 include_guard ()
 
+<<<<<<< HEAD
 find_package (SMCE 1.4 REQUIRED)
 # for testing, can change it to SMCE_FOUND, then even it found the smce 1.4
 # still will install the library
 if(SMCE_FOUND)
     message("libsmce are not int your computer, autoinstalling")
+=======
+find_package (SMCE 1.4)
+if(NOT SMCE_FOUND)
+    message("libSMCE not found, downloading and installing...")
+>>>>>>> 35dcdbb8cb07a5ad29cab071d3a689a274ae87c4
 
     # set the libSMCE version and the target file basename
     set (SMCE_EXPECTED_TAG 1.4.0)
@@ -47,7 +53,6 @@ if(SMCE_FOUND)
 
     set (SMCE_ROOT "${CMAKE_CURRENT_BINARY_DIR}/smce-autodl")
     file (MAKE_DIRECTORY "${SMCE_ROOT}")
-#DEBUG    message("libSMCE-${SMCE_EXPECTED_VERSION}-${CMAKE_SYSTEM_NAME}-${SMCE_EXPECTED_ARCH}-${CMAKE_CXX_COMPILER_ID}")
 
     # download sha512.txt from github
     file (DOWNLOAD "https://github.com/ItJustWorksTM/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/sha512.txt"
@@ -59,13 +64,12 @@ if(SMCE_FOUND)
         string (SUBSTRING "${SMCE_SHA512_LINE}" 130 -1 SMCE_SHA512_FNAME)
         if (SMCE_SHA512_FNAME STREQUAL SMCE_ARK_FILENAME)
             string (SUBSTRING "${SMCE_SHA512_LINE}" 0 128 SMCE_ARK_HASH)
-            message(${SMCE_SHA512_LINE})
                 break ()
         endif ()
     endforeach ()
 
-    # downlaod the zip file from github and make it in the corresponding dir
-   file (DOWNLOAD "https://github.com/ItJustWorksTM/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/${SMCE_ARK_FILENAME}"
+    # download the zip file from github and make it in the corresponding dir
+    file (DOWNLOAD "https://github.com/ItJustWorksTM/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/${SMCE_ARK_FILENAME}"
             "${SMCE_ROOT}/${SMCE_ARK_FILENAME}"
             SHOW_PROGRESS
             TLS_VERIFY ON
@@ -74,20 +78,23 @@ if(SMCE_FOUND)
             WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
     file (REMOVE_RECURSE "${SMCE_ROOT}")
 
-
     add_library (SMCE IMPORTED STATIC)
     target_include_directories (SMCE INTERFACE "${SMCE_ROOT}/include")
-    message(${CMAKE_STATIC_LIBRARY_SUFFIX})
 
     # make the target to the libSMCE_static.a
     set_property (TARGET SMCE PROPERTY IMPORTED_LOCATION "${SMCE_ROOT}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}SMCE_static${CMAKE_STATIC_LIBRARY_SUFFIX}")
     set(SMCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}/lib/cmake/SMCE")
+    message ("libSMCE installed in ${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}")
+    find_package (SMCE 1.4 REQUIRED)
 endif()
 
 # refind the package and output the dir to make sure it used the download one
+<<<<<<< HEAD
 find_package (SMCE 1.4 REQUIRED)
 #message("${SMCE_DIR}")
 #message ("libSMCE found")
+=======
+>>>>>>> 35dcdbb8cb07a5ad29cab071d3a689a274ae87c4
 set (SMCE_TARGET SMCE::SMCE)
 option (SMCE_LINK_STATIC "Link to libSMCE statically" Off)
 
