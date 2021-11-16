@@ -15,3 +15,6 @@ project/share/version.txt
 godot.log
 *.png~
 *.import
+
+# Build
+build/
