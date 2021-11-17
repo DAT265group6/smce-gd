@@ -66,4 +66,5 @@ func create_texture() -> ImageTexture:
 	
 	var texture = ImageTexture.new()
 	texture.create_from_image(image)
+	texture.flags = 0
 	return texture
