@@ -3,9 +3,6 @@
 
 # CMake
 cmake-build-*/
-
-build/
-
 # SMCE
 .cmaw
 
@@ -20,3 +17,6 @@ godot.log
 *.import
 
 build/
+
+# Mac
+.DS_Store
