@@ -55,7 +55,7 @@ func visualize() -> Control:
 	visualizer.rect_min_size.x = 120
 	visualizer.rect_min_size.y = 70
 	visualizer.display_node(self, "create_texture")
-    # This part should probably move to ScreenVisualizer class and be rethought somehow...
+	# This part should probably move to ScreenVisualizer class and be rethought somehow...
 	visualizer.rect_scale = Vector2(10, 10)
 	return visualizer
 
