@@ -34,6 +34,8 @@ export var key = 1
 
 var view = null setget set_view
 
+var vehicle = null
+
 func set_view(_view: Node) -> void:
 	if ! _view:
 		return
@@ -48,6 +50,11 @@ func _ready():
 func _on_frame() -> void:
 	if ! view || ! view.is_valid():
 		return
+	if vehicle != null && vehicle.has_method("a"):
+		vehicle.a()
+
+func _on_set_vehicle(veh: Node) -> void:
+	vehicle = veh
 
 # This method adds the attachment visualizer to the control panel
 func visualize() -> Control:

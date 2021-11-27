@@ -257,9 +257,9 @@ func _on_follow() -> void:
 
 func OnOffScreenToggle():
 	if($OnOffScreenToggle.pressed):
-		vehicle.a()
+		1
 	else:
-		vehicle.a()
+		1
 
 func _on_reset_pos() -> void:
 	reset_vehicle_pos()
@@ -373,6 +373,8 @@ func _setup_attachments() -> void:
 		collapsable.set_header_text(attachment.name)
 		if attachment.has_method("visualize"):
 			collapsable.add_child(attachment.visualize())
+		if attachment.has_method("_on_set_vehicle"):
+			attachment._on_set_vehicle(vehicle)
 		attachments.add_child(collapsable)
 		attachment.connect("tree_exited", collapsable, "call", ["queue_free"])
 

@@ -57,6 +57,7 @@ func a():
 	for attachment in attachments:
 		if attachment.has_method("create_texture"):
 			$Sprite3D2.texture = attachment.create_texture()
+			#$Sprite3D2.texture = null
 
 
 func add_aux_attachment(slot_name: String, attachment: Node) -> GDResult:
