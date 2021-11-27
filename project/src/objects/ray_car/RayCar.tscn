@@ -57,7 +57,7 @@ transform = Transform( -0.08, 0, -3.72727e-06, 0, 0.08, 0, 2.98182e-07, 0, -1, 0
 texture = ExtResource( 3 )
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0020054, 0.038, -2.40029 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.0020054, 0.038, -2.20038 )
 pixel_size = 1.0
 texture = SubResource( 4 )
 
