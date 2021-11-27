@@ -21,7 +21,7 @@ extents = Vector3( 1.92613, 0.140498, 0.426843 )
 [sub_resource type="ImageTexture" id=4]
 flags = 23
 flags = 23
-size = Vector2( 500, 500 )
+size = Vector2( 5, 5 )
 
 [node name="RayCar" type="RigidBody"]
 can_sleep = false
@@ -57,7 +57,7 @@ transform = Transform( -0.08, 0, -3.72727e-06, 0, 0.08, 0, 2.98182e-07, 0, -1, 0
 texture = ExtResource( 3 )
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.0020054, 0.038, -2.20038 )
+transform = Transform( -0.1, 0, -1.50996e-07, 0, 0.1, 0, 1.50996e-08, 0, -1, 0.002, 0.038, -2.2 )
 pixel_size = 1.0
 texture = SubResource( 4 )
 
