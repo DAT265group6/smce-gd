@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/ui/sketch_control/ControlPane.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/uart_console/UartConsole.tscn" type="PackedScene" id=2]
@@ -53,44 +53,9 @@ bg_color = Color( 0, 0.478431, 0.8, 1 )
 bg_color = Color( 0, 0.478431, 0.8, 1 )
 
 [sub_resource type="StyleBoxFlat" id=14]
-bg_color = Color( 0.164706, 0.164706, 0.164706, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
-corner_radius_top_left = 4
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_left = 1.0
-expand_margin_right = 1.0
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-shadow_color = Color( 1, 1, 1, 0.6 )
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=16]
-bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-shadow_color = Color( 1, 1, 1, 0.6 )
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=15]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -98,14 +63,14 @@ content_margin_bottom = 4.0
 bg_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 border_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=16]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
 bg_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=17]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -117,9 +82,9 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0.478431, 0.8, 1 )
 
-[sub_resource type="StyleBoxEmpty" id=21]
+[sub_resource type="StyleBoxEmpty" id=18]
 
-[sub_resource type="StyleBoxEmpty" id=22]
+[sub_resource type="StyleBoxEmpty" id=19]
 
 [node name="ControlPane" type="VBoxContainer"]
 anchor_left = -0.000535488
@@ -365,20 +330,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShowHideScreenToggle" type="CheckButton" parent="."]
-margin_left = 539.0
-margin_top = 172.0
-margin_right = 741.0
-margin_bottom = 212.0
-size_flags_horizontal = 4
-text = "Show/Hide Screen"
-align = 2
-
 [node name="OnOffScreenToggle" type="CheckButton" parent="."]
 margin_left = 552.0
-margin_top = 212.0
+margin_top = 172.0
 margin_right = 728.0
-margin_bottom = 252.0
+margin_bottom = 212.0
 size_flags_horizontal = 4
 text = "On/Off Screen"
 align = 2
@@ -386,726 +342,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-margin_left = 513.0
-margin_top = 252.0
-margin_right = 766.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 119.991, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_styles/panel = SubResource( 14 )
-
-[node name="ColumnsContainer" type="GridContainer" parent="PanelContainer"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 252.0
-margin_bottom = 147.0
-rect_min_size = Vector2( 251, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-columns = 12
-
-[node name="RowsContainer1" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer1"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 15 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer1"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer1"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer1"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer1"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer1"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer1"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer2" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 21.0
-margin_right = 41.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="TextureRect" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer2"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer3" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 42.0
-margin_right = 62.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer3"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer3"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer3"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer3"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer3"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer3"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer3"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer4" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 63.0
-margin_right = 83.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer4"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer4"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer4"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer4"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer4"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer4"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer4"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer5" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 84.0
-margin_right = 104.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer5"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer5"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer5"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer5"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer5"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer5"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer5"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer6" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 105.0
-margin_right = 125.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer6"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer6"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer6"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer6"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer6"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer6"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer6"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer7" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 126.0
-margin_right = 146.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer7"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer7"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer7"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer7"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer7"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer7"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer7"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer8" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 147.0
-margin_right = 167.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer8"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer8"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer8"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer8"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer8"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer8"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer8"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer9" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 168.0
-margin_right = 188.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer9"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer9"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer9"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer9"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer9"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer9"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer9"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer10" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 189.0
-margin_right = 209.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer10"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer10"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer10"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer10"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer10"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer10"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer10"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer11" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 210.0
-margin_right = 230.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer11"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer11"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer11"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer11"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer11"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer11"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer11"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="RowsContainer12" type="GridContainer" parent="PanelContainer/ColumnsContainer"]
-margin_left = 231.0
-margin_right = 251.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 146 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-custom_constants/vseparation = 1
-custom_constants/hseparation = 1
-
-[node name="Panel1" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer12"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel2" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer12"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel3" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer12"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel4" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer12"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel5" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer12"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel6" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer12"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
-[node name="Panel7" type="Panel" parent="PanelContainer/ColumnsContainer/RowsContainer12"]
-margin_top = 126.0
-margin_right = 20.0
-margin_bottom = 146.0
-rect_min_size = Vector2( 20, 20 )
-custom_styles/panel = SubResource( 16 )
-
 [node name="AttachmentsHeader" type="Label" parent="."]
-margin_top = 400.0
+margin_top = 212.0
 margin_right = 1280.0
-margin_bottom = 420.0
+margin_bottom = 232.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Attachments"
@@ -1116,7 +356,7 @@ __meta__ = {
 }
 
 [node name="Scroll" type="ScrollContainer" parent="."]
-margin_top = 420.0
+margin_top = 232.0
 margin_right = 1280.0
 margin_bottom = 626.0
 size_flags_horizontal = 3
@@ -1196,7 +436,7 @@ margin_top = 27.0
 margin_right = 1280.0
 margin_bottom = 327.0
 rect_min_size = Vector2( 0, 300 )
-custom_styles/panel = SubResource( 17 )
+custom_styles/panel = SubResource( 14 )
 script = ExtResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Log/SketchLog"]
@@ -1213,11 +453,11 @@ margin_right = 638.0
 margin_bottom = 28.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 19 )
-custom_styles/focus = SubResource( 20 )
-custom_styles/disabled = SubResource( 19 )
-custom_styles/normal = SubResource( 19 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
 text = "Copy To Clipboard"
 
 [node name="Open" type="Button" parent="Log/SketchLog/VBoxContainer/HBoxContainer"]
@@ -1226,11 +466,11 @@ margin_right = 1280.0
 margin_bottom = 28.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 19 )
-custom_styles/focus = SubResource( 20 )
-custom_styles/disabled = SubResource( 19 )
-custom_styles/normal = SubResource( 19 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
 text = "Open In window ^"
 
 [node name="LogBox" type="RichTextLabel" parent="Log/SketchLog/VBoxContainer"]
@@ -1238,7 +478,7 @@ margin_top = 28.0
 margin_right = 1280.0
 margin_bottom = 300.0
 size_flags_vertical = 3
-custom_styles/focus = SubResource( 21 )
+custom_styles/focus = SubResource( 18 )
 custom_colors/selection_color = Color( 0.184314, 0.184314, 0.184314, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
@@ -1255,7 +495,7 @@ disabled = true
 [node name="UartPanel" type="PanelContainer" parent="Serial"]
 visible = false
 rect_min_size = Vector2( 0, 300 )
-custom_styles/panel = SubResource( 22 )
+custom_styles/panel = SubResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1272,4 +512,3 @@ anchor_bottom = 0.0
 margin_top = 680.0
 margin_right = 1280.0
 margin_bottom = 720.0
-position = Vector3(20,20,-10)
