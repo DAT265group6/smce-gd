@@ -49,6 +49,9 @@ onready var serial_collapsable = $Serial
 onready var uart = $Serial/UartPanel/Uart
 onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
 
+var pixel_style_activated
+var pixel_style_deactivated
+
 var sketch_path: String = ""
 
 var cam_ctl: CamCtl = null setget set_cam_ctl
@@ -118,6 +121,7 @@ func _ready():
 	start_btn.connect("pressed", self, "_on_start")
 	reset_pos_btn.connect("pressed", self, "_on_reset_pos")
 	follow_btn.connect("pressed", self, "_on_follow")
+
 
 	$OnOffScreenToggle.connect("pressed", self, "OnOffScreenToggle")
 	$OnOffScreenToggle.visible = false
@@ -255,6 +259,7 @@ func _on_follow() -> void:
 	else:
 		cam_ctl.lock_cam(vehicle)
 
+
 func OnOffScreenToggle():
 	if($OnOffScreenToggle.pressed):
 		1
@@ -265,6 +270,8 @@ func _on_reset_pos() -> void:
 	reset_vehicle_pos()
 
 func _on_start() -> void:
+
+
 	$OnOffScreenToggle.visible = true
 
 	match _board.status():
