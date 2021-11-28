@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       max-parallel: 5
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.10.0
@@ -22,6 +21,7 @@ jobs:
       run: |
         conda install libclang
         conda install clang
+        echo $CLANG/bin >> $GITHUB_PATH
     - name: test with sniff
       run: |
         python3 sniff.py src
