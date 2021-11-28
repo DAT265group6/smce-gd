@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attachments/AnalogRaycast.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "AnyTask",
 "language": "NativeScript",
 "path": "res://src/bind/AnyTask.gdns"
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/utilities/toggleable_bgroup/BButtonGroup.gd"
 }, {
-"base": "",
+"base": "Node",
 "class": "Board",
 "language": "NativeScript",
 "path": "res://src/bind/Board.gdns"
@@ -64,12 +64,12 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://src/bind/FrameBufferConfig.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "GDResult",
 "language": "NativeScript",
 "path": "res://src/bind/GDResult.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "GpioDriverConfig",
 "language": "NativeScript",
 "path": "res://src/bind/GpioDriverConfig.gdns"
@@ -119,6 +119,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attachments/Screen.gd"
 }, {
+"base": "TextureRect",
+"class": "ScreenVisualizer",
+"language": "GDScript",
+"path": "res://src/ui/node_visualizer/ScreenVisualizer.gd"
+}, {
 "base": "Reference",
 "class": "SecureDigitalStorage",
 "language": "NativeScript",
@@ -139,7 +144,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/ui/simple_notification/SimpleNotification.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "Sketch",
 "language": "NativeScript",
 "path": "res://src/bind/Sketch.gdns"
@@ -159,12 +164,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/ui/temp_tween/TempTween.gd"
 }, {
-"base": "",
+"base": "Node",
 "class": "Toolchain",
 "language": "NativeScript",
 "path": "res://src/bind/Toolchain.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "UartChannelConfig",
 "language": "NativeScript",
 "path": "res://src/bind/UartChannelConfig.gdns"
@@ -206,6 +211,7 @@ _global_script_class_icons={
 "RayWheel": "",
 "SMCE": "",
 "Screen": "",
+"ScreenVisualizer": "",
 "SecureDigitalStorage": "",
 "Shooty": "",
 "ShootyVisualizer": "",

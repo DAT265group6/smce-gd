@@ -33,6 +33,7 @@ onready var effect = TextureRect.new()
 export var key = 1
 
 var view = null setget set_view
+
 var body
 var collision
 var mesh
@@ -44,6 +45,7 @@ func set_view(_view: Node) -> void:
 	view = _view
 
 func _ready():
+
 	# Create an object in the 3D world
 	body = StaticBody.new()
 	# Rotate and scale the object
@@ -77,13 +79,15 @@ func _on_frame() -> void:
 		return
 	material.albedo_texture = create_texture()
 
+
 # This method adds the attachment visualizer to the control panel
 func visualize() -> Control:
 	var visualizer = ScreenVisualizer.new()
 	visualizer.rect_min_size.x = 120
 	visualizer.rect_min_size.y = 70
 	visualizer.display_node(self, "create_texture")
-    # This part should probably move to ScreenVisualizer class and be rethought somehow...
+
+	# This part should probably move to ScreenVisualizer class and be rethought somehow...
 	visualizer.rect_scale = Vector2(10, 10)
 	return visualizer
 
