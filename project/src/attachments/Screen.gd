@@ -33,6 +33,10 @@ onready var effect = TextureRect.new()
 export var key = 1
 
 var view = null setget set_view
+var body
+var collision
+var mesh
+var material
 
 func set_view(_view: Node) -> void:
 	if ! _view:
@@ -40,14 +44,38 @@ func set_view(_view: Node) -> void:
 	view = _view
 
 func _ready():
-	timer.connect("timeout", self, "_on_frame")
+	# Create an object in the 3D world
+	body = StaticBody.new()
+	# Rotate and scale the object
+	body.transform = body.transform.rotated(Vector3(0,1,0),PI).scaled(Vector3(1.2, 0.7, 0.1))
+	# Place the object on the car
+	get_parent().add_child(body)
 
-	timer.autostart = true
+	# Interaction with the physical world
+	collision = CollisionShape.new()
+	collision.shape = BoxShape.new()
+	body.add_child(collision)
+
+	# Shape appearance visually
+	mesh = MeshInstance.new()
+	mesh.mesh = CubeMesh.new()
+	body.add_child(mesh)
+
+	# What the shape looks like
+	material = SpatialMaterial.new()
+	material.albedo_color = Color(1, 1, 1)
+	material.uv1_scale = Vector3(3,2,1) # 
+	mesh.material_override = material
+
+	# Run times 60 frames per second
+	timer.connect("timeout", self, "_on_frame")
 	add_child(timer)
+	timer.start(1.0 / 60.0)
 
 func _on_frame() -> void:
 	if ! view || ! view.is_valid():
 		return
+	material.albedo_texture = create_texture()
 
 # This method adds the attachment visualizer to the control panel
 func visualize() -> Control:
