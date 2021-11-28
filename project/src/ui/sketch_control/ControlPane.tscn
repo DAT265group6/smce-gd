@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/ui/sketch_control/ControlPane.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/uart_console/UartConsole.tscn" type="PackedScene" id=2]
@@ -53,9 +53,44 @@ bg_color = Color( 0, 0.478431, 0.8, 1 )
 bg_color = Color( 0, 0.478431, 0.8, 1 )
 
 [sub_resource type="StyleBoxFlat" id=14]
-bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+bg_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color( 1, 1, 1, 0.6 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color( 1, 1, 1, 0.6 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -63,14 +98,14 @@ content_margin_bottom = 4.0
 bg_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 border_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=19]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
 bg_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=20]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -82,13 +117,18 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0.478431, 0.8, 1 )
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="StyleBoxEmpty" id=21]
 
-[sub_resource type="StyleBoxEmpty" id=19]
+[sub_resource type="StyleBoxEmpty" id=22]
 
 [node name="ControlPane" type="VBoxContainer"]
-anchor_right = 1.0
+anchor_left = -0.000535488
+anchor_right = 0.999465
 anchor_bottom = 1.0
+margin_left = 0.408752
+margin_top = -0.0100861
+margin_right = 0.408936
+margin_bottom = -0.0100708
 custom_constants/separation = 0
 script = ExtResource( 1 )
 __meta__ = {
@@ -325,16 +365,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Padding" type="Control" parent="."]
+
+[node name="OnOffScreenToggle" type="CheckButton" parent="."]
+margin_left = 552.0
 margin_top = 172.0
-margin_right = 1280.0
-margin_bottom = 187.0
-rect_min_size = Vector2( 0, 15 )
+margin_right = 728.0
+margin_bottom = 212.0
+size_flags_horizontal = 4
+
+text = "On/Off Screen"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AttachmentsHeader" type="Label" parent="."]
-margin_top = 187.0
+margin_top = 212.0
 margin_right = 1280.0
-margin_bottom = 207.0
+margin_bottom = 232.0
+
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Attachments"
@@ -345,9 +394,11 @@ __meta__ = {
 }
 
 [node name="Scroll" type="ScrollContainer" parent="."]
-margin_top = 207.0
+
+margin_top = 232.0
+
 margin_right = 1280.0
-margin_bottom = 666.0
+margin_bottom = 626.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
@@ -414,9 +465,9 @@ __meta__ = {
 }
 
 [node name="Log" parent="." instance=ExtResource( 3 )]
-margin_top = 666.0
+margin_top = 626.0
 margin_right = 1280.0
-margin_bottom = 693.0
+margin_bottom = 653.0
 heading_text = "Log"
 
 [node name="SketchLog" type="PanelContainer" parent="Log"]
@@ -425,7 +476,7 @@ margin_top = 27.0
 margin_right = 1280.0
 margin_bottom = 327.0
 rect_min_size = Vector2( 0, 300 )
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 17 )
 script = ExtResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Log/SketchLog"]
@@ -442,11 +493,11 @@ margin_right = 638.0
 margin_bottom = 28.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/disabled = SubResource( 16 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/focus = SubResource( 20 )
+custom_styles/disabled = SubResource( 19 )
+custom_styles/normal = SubResource( 19 )
 text = "Copy To Clipboard"
 
 [node name="Open" type="Button" parent="Log/SketchLog/VBoxContainer/HBoxContainer"]
@@ -455,11 +506,11 @@ margin_right = 1280.0
 margin_bottom = 28.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/disabled = SubResource( 16 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/focus = SubResource( 20 )
+custom_styles/disabled = SubResource( 19 )
+custom_styles/normal = SubResource( 19 )
 text = "Open In window ^"
 
 [node name="LogBox" type="RichTextLabel" parent="Log/SketchLog/VBoxContainer"]
@@ -467,7 +518,7 @@ margin_top = 28.0
 margin_right = 1280.0
 margin_bottom = 300.0
 size_flags_vertical = 3
-custom_styles/focus = SubResource( 18 )
+custom_styles/focus = SubResource( 21 )
 custom_colors/selection_color = Color( 0.184314, 0.184314, 0.184314, 1 )
 custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
@@ -475,16 +526,16 @@ scroll_following = true
 override_selected_font_color = true
 
 [node name="Serial" parent="." instance=ExtResource( 3 )]
-margin_top = 693.0
+margin_top = 653.0
 margin_right = 1280.0
-margin_bottom = 720.0
+margin_bottom = 680.0
 heading_text = "Serial"
 disabled = true
 
 [node name="UartPanel" type="PanelContainer" parent="Serial"]
 visible = false
 rect_min_size = Vector2( 0, 300 )
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -494,3 +545,13 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1280.0
 margin_bottom = 300.0
+
+[node name="Position" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 680.0
+margin_right = 1280.0
+margin_bottom = 720.0
+
+position = Vector3(20,20,-10)
+

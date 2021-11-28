@@ -17,6 +17,7 @@
  */
 
 #include <span>
+#include <vector>
 #include "bind/FrameBuffer.hxx"
 
 using namespace godot;
@@ -29,6 +30,7 @@ void FrameBuffer::_register_methods() {
     register_method("get_height", &FrameBuffer::get_height);
     register_method("get_freq", &FrameBuffer::get_freq);
     register_method("write_rgb888", &FrameBuffer::write_rgb888);
+    register_method("read_rgb888", &FrameBuffer::read_rgb888);
 }
 
 bool FrameBuffer::exists() { return frame_buf.exists(); }
@@ -49,4 +51,35 @@ bool FrameBuffer::write_rgb888(Ref<Image> img) {
         std::span{reinterpret_cast<const std::byte*>(bytes.read().ptr()), static_cast<size_t>(bytes.size())};
 
     return frame_buf.write_rgb888(byte_span);
+}
+
+bool FrameBuffer::read_rgb888(Ref<Image> img) {
+    // If the frame buffer hasn't yet been configured, return false
+    if (!frame_buf.exists())
+        return false;
+    if (frame_buf.get_width() == 0)
+        return false;
+
+    // Reserve space for Width * Height * 3 bytes
+    const std::size_t array_size = get_width() * get_height() * 3;
+    std::vector<std::byte> byte_span(array_size);
+
+    // Read RGB888 values from the frame buffer
+    if (!frame_buf.read_rgb888(byte_span))
+        return false;
+
+    // Create a PoolByteArray https://docs.godotengine.org/en/stable/classes/class_poolbytearray.html
+    godot::PoolByteArray pool;
+    // Give it the right size
+    pool.resize(array_size);
+
+    // Copy the RGB888 values from the C++ array to the Godot PoolByteArray
+    for (std::size_t i = 0; i < array_size; i++) {
+        pool.set(i, (uint8_t)byte_span[i]);
+    }
+
+    // Create an Image object from the copied image
+    img->create_from_data(get_width(), get_height(), false, Image::Format::FORMAT_RGB8, pool);
+
+    return true;
 }

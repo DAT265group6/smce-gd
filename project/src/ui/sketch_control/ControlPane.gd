@@ -24,7 +24,8 @@ signal notification_created
 signal grab_focus
 
 var _toolchain: Toolchain = null
-var _board = null
+var _board: Board = null
+var _view: BoardView = null
 
 onready var compile_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/Compile
 onready var compile_log_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/CompileLog
@@ -47,6 +48,9 @@ onready var log_box = $Log
 onready var serial_collapsable = $Serial
 onready var uart = $Serial/UartPanel/Uart
 onready var sketch_log = $Log/SketchLog/VBoxContainer/LogBox
+
+var pixel_style_activated
+var pixel_style_deactivated
 
 var sketch_path: String = ""
 
@@ -117,8 +121,12 @@ func _ready():
 	start_btn.connect("pressed", self, "_on_start")
 	reset_pos_btn.connect("pressed", self, "_on_reset_pos")
 	follow_btn.connect("pressed", self, "_on_follow")
-	
-	
+
+
+	$OnOffScreenToggle.connect("pressed", self, "OnOffScreenToggle")
+	$OnOffScreenToggle.visible = false
+	$OnOffScreenToggle.pressed = false
+
 	uart.set_uart(_board.uart())
 	file_path_header.text = " " + sketch_path.get_file().get_file()
 	
@@ -252,11 +260,20 @@ func _on_follow() -> void:
 		cam_ctl.lock_cam(vehicle)
 
 
+func OnOffScreenToggle():
+	if($OnOffScreenToggle.pressed):
+		1
+	else:
+		1
+
 func _on_reset_pos() -> void:
 	reset_vehicle_pos()
 
-
 func _on_start() -> void:
+
+
+	$OnOffScreenToggle.visible = true
+
 	match _board.status():
 		SMCE.Status.RUNNING, SMCE.Status.SUSPENDED:
 			Util.print_if_err(_board.terminate())
@@ -363,16 +380,23 @@ func _setup_attachments() -> void:
 		collapsable.set_header_text(attachment.name)
 		if attachment.has_method("visualize"):
 			collapsable.add_child(attachment.visualize())
+		if attachment.has_method("_on_set_vehicle"):
+			attachment._on_set_vehicle(vehicle)
 		attachments.add_child(collapsable)
 		attachment.connect("tree_exited", collapsable, "call", ["queue_free"])
 
+# Vector3(x,z,y) z means at what height did it fall, cant be set to 0
+# x<0 means left side, x>0 means right side
+# y<0 means forward, y>0 means backward
+func init_vec_pos() -> Vector3:
+	return $Position.position
 
 func reset_vehicle_pos() -> void:
 	if !is_instance_valid(vehicle):
 		return
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
-	vehicle.global_transform.origin = Vector3(0,3,0)
+	vehicle.global_transform.origin = Vector3(20,20,20)#init_vec_pos()
 	vehicle.global_transform.basis = Basis()
 	if ! was_frozen:
 		vehicle.unfreeze()
