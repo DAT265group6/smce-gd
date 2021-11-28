@@ -19,10 +19,10 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install dependencies
       run: |
-        sudo apt-get install python-clang
+        pip3 install libclang
     - name: test with sniff
       run: |
-        python3-clang sniff.py src
+        python3 sniff.py src
 #    - name: Test with pytest
 #      run: |
 #        conda install pytest
