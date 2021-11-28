@@ -34,6 +34,7 @@ void Sketch::_register_methods() {
 #undef U
 
 void Sketch::init(String src, String home_dir) {
+
     std::vector<std::string> mkrrgb_depends;
     mkrrgb_depends.push_back(std::string("ArduinoGraphics"));
     sketch = smce::Sketch{
