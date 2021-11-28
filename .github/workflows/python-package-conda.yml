@@ -21,6 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         conda install libclang
+        conda install clang
     - name: test with sniff
       run: |
         python3 sniff.py src
