@@ -3,7 +3,6 @@
 
 # CMake
 cmake-build-*/
-build
 # SMCE
 .cmaw
 
@@ -14,7 +13,10 @@ project/share/RtResources
 project/share/version.txt
 godot.log
 *.png~
+
 *.import
 
-# Build
 build/
+
+# Mac
+.DS_Store

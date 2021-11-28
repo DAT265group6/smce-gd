@@ -51,10 +51,6 @@ find_package(Threads REQUIRED)
 #    message(STATUS "libSMCE statically linked")
 #endif ()
 #
-#if (APPLE)
-#    set(CMAKE_BUILD_RPATH "@loader_path/../Frameworks;${CMAKE_BUILD_RPATH}")
-#    set(CMAKE_INSTALL_RPATH "@loader_path/../Frameworks;${CMAKE_INSTALL_RPATH}")
-#endif()
 
 
 
@@ -67,6 +63,10 @@ set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ${CMAKE_IPO_SUPPORTED})
 list (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake/Modules")
 include(SetupSMCE)
 
+if (APPLE)
+    set(CMAKE_BUILD_RPATH "@loader_path/../Frameworks;${CMAKE_BUILD_RPATH}")
+    set(CMAKE_INSTALL_RPATH "@loader_path/../Frameworks;${CMAKE_INSTALL_RPATH}")
+endif()
 
 include (FetchContent)
 list (APPEND GDCPP_NEEDED_CLASSES Reference Node Resource _ResourceLoader)
@@ -145,8 +145,7 @@ if (SMCEGD_BUNDLE_DEPS)
     )
 endif ()
 
-install (CODE "find_program (GODOT_EXECUTABLE NAMES godot3-headless godot3-server godot3 godot REQUIRED)")
-
+install (CODE "find_program (GODOT_EXECUTABLE NAMES godot3-headless godot-headless godot3-server godot-server godot3 godot REQUIRED)")
 if (NOT APPLE)
     install (CODE "
         execute_process (COMMAND \"\${GODOT_EXECUTABLE}\" --no-window --export${GODOT_DEBUG_ARG} \"${GODOT_PLATFORM}\" \"${PROJECT_BINARY_DIR}/export/smce_gd${CMAKE_EXECUTABLE_SUFFIX}\" WORKING_DIRECTORY \"${CMAKE_SOURCE_DIR}/project\")

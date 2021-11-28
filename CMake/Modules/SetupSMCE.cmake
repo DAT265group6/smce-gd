@@ -17,14 +17,14 @@
 
 include_guard ()
 
-find_package (SMCE 1.4)
+find_package (SMCE 1.4.0.5)
 # for testing you can set it to if(SMCE_FOUND)
 if(NOT SMCE_FOUND)
     message("libSMCE not found, downloading and installing...")
 
     # set the libSMCE version and the target file basename
-    set (SMCE_EXPECTED_TAG 1.4.0)
-    set (SMCE_EXPECTED_VERSION 1.4)
+    set (SMCE_EXPECTED_TAG 1.4.0.6)
+    set (SMCE_EXPECTED_VERSION 1.4.0.5)
     if(UNIX)
         set (SMCE_EXPECTED_ARCH x86_64)
     # for windows
@@ -48,7 +48,7 @@ if(NOT SMCE_FOUND)
     file (MAKE_DIRECTORY "${SMCE_ROOT}")
 
     # download sha512.txt from github
-    file (DOWNLOAD "https://github.com/ItJustWorksTM/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/sha512.txt"
+    file (DOWNLOAD "https://github.com/DAT265group6/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/sha512.txt"
                 "${SMCE_ROOT}/sha512.txt"
                 TLS_VERIFY ON)
     file (STRINGS "${SMCE_ROOT}/sha512.txt" SMCE_${SMCE_EXPECTED_VERSION}_SHA512s
@@ -62,7 +62,7 @@ if(NOT SMCE_FOUND)
     endforeach ()
 
     # download the zip file from github and make it in the corresponding dir
-    file (DOWNLOAD "https://github.com/ItJustWorksTM/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/${SMCE_ARK_FILENAME}"
+    file (DOWNLOAD "https://github.com/DAT265group6/libSMCE/releases/download/v${SMCE_EXPECTED_TAG}/${SMCE_ARK_FILENAME}"
             "${SMCE_ROOT}/${SMCE_ARK_FILENAME}"
             SHOW_PROGRESS
             TLS_VERIFY ON
@@ -78,9 +78,14 @@ if(NOT SMCE_FOUND)
     set_property (TARGET SMCE PROPERTY IMPORTED_LOCATION "${SMCE_ROOT}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}SMCE_static${CMAKE_STATIC_LIBRARY_SUFFIX}")
     set(SMCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}/lib/cmake/SMCE")
     message ("libSMCE installed in ${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}")
+
+    if (MSVC)
+        message("Copy ${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}/bin/SMCE.dll to ${PROJECT_SOURCE_DIR}/project/gdnative/lib")
+        file (COPY_FILE "${CMAKE_CURRENT_BINARY_DIR}/${SMCE_BASENAME}/bin/SMCE.dll" "${PROJECT_SOURCE_DIR}/project/gdnative/lib/SMCE.dll")
+    endif()
 endif()
 # refind the package and output the dir to make sure it used the download one
-find_package (SMCE 1.4 REQUIRED)
+find_package (SMCE 1.4.0.5 REQUIRED)
 #message("${SMCE_DIR}")
 #message ("libSMCE found")
 set (SMCE_TARGET SMCE::SMCE)
@@ -94,7 +99,3 @@ if (SMCEGD_SMCE_LINKING STREQUAL "STATIC")
     message (STATUS "libSMCE statically linked")
 endif ()
 
-if (APPLE)
-    set (CMAKE_BUILD_RPATH "@loader_path/../Frameworks;${CMAKE_BUILD_RPATH}")
-    set (CMAKE_INSTALL_RPATH "@loader_path/../Frameworks;${CMAKE_INSTALL_RPATH}")
-endif ()
