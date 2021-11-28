@@ -22,7 +22,7 @@ jobs:
         sudo apt-get install python-clang
     - name: test with sniff
       run: |
-        python3 sniff.py src
+        python3-clang sniff.py src
 #    - name: Test with pytest
 #      run: |
 #        conda install pytest
