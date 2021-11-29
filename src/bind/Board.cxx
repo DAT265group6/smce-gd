@@ -52,7 +52,7 @@ void Board::_init() {
     set_physics_process(false);
 }
 
-//smce::Board& Board::native() { return board; }
+smce::Board& Board::native() { return board; }
 
 void Board::set_view() {
     auto view = board.view();

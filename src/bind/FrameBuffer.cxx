@@ -40,18 +40,18 @@ int FrameBuffer::get_width() noexcept { return frame_buf.get_width(); }
 int FrameBuffer::get_height() noexcept { return frame_buf.get_height(); }
 int FrameBuffer::get_freq() noexcept { return frame_buf.get_freq(); }
 
-bool FrameBuffer::write_rgb888(Ref<Image> img) {
-    img->convert(Image::Format::FORMAT_RGB8);
-    auto bytes = img->get_data();
-
-    if (bytes.size() <= 0)
-        return false;
-
-    const auto byte_span =
-        std::span{reinterpret_cast<const std::byte*>(bytes.read().ptr()), static_cast<size_t>(bytes.size())};
-
-    return frame_buf.write_rgb888(byte_span);
-}
+//bool FrameBuffer::write_rgb888(Ref<Image> img) {
+//    img->convert(Image::Format::FORMAT_RGB8);
+//    auto bytes = img->get_data();
+//
+//    if (bytes.size() <= 0)
+//        return false;
+//
+//    const auto byte_span =
+//        std::span{reinterpret_cast<const std::byte*>(bytes.read().ptr()), static_cast<size_t>(bytes.size())};
+//
+//    return frame_buf.write_rgb888(byte_span);
+//}
 
 bool FrameBuffer::read_rgb888(Ref<Image> img) {
     // If the frame buffer hasn't yet been configured, return false
