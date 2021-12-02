@@ -20,6 +20,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip3 install libclang
-    - name: test with sniff
+    - name: Download code smell tool
       run: |
-        python3 sniff.py src
+      curl https://raw.githubusercontent.com/DAT265group6/code-smell-tool/main/sniff.py --output sniff.py
+    - name: Detect smells
+      run: python ./sniff.py ./src
