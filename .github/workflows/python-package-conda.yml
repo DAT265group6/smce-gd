@@ -1,4 +1,4 @@
-name: Code Smell Checjer
+name: Code Smell Checker
 
 on: [push]
 
