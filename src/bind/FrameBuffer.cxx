@@ -31,6 +31,9 @@ void FrameBuffer::_register_methods() {
     register_method("get_freq", &FrameBuffer::get_freq);
     register_method("write_rgb888", &FrameBuffer::write_rgb888);
     register_method("read_rgb888", &FrameBuffer::read_rgb888);
+    register_method("read_rgb888_pixel", &FrameBuffer::read_rgb888_pixel);
+    register_method("read_rgb565_pixel", &FrameBuffer::read_rgb565_pixel);
+    register_method("read_yuv422_pixel", &FrameBuffer::read_yuv422_pixel);
 }
 
 bool FrameBuffer::exists() { return frame_buf.exists(); }
@@ -82,4 +85,80 @@ bool FrameBuffer::read_rgb888(Ref<Image> img) {
     img->create_from_data(get_width(), get_height(), false, Image::Format::FORMAT_RGB8, pool);
 
     return true;
+}
+
+// Reads one pixel from the framebuffer and returns a 32-bit integer:
+// R << 16  |  G << 8  |  B << 0
+int FrameBuffer::read_rgb888_pixel(int x, int y) {
+    // If the frame buffer hasn't yet been configured, return false
+    if (!frame_buf.exists())
+        return 0;
+    if (frame_buf.get_width() == 0)
+        return 0;
+
+    // Reserve space for Width * Height * 3 bytes
+    const std::size_t array_size = get_width() * get_height() * 3;
+    std::vector<std::byte> byte_span(array_size);
+
+    // Read RGB888 values from the frame buffer
+    if (!frame_buf.read_rgb888(byte_span))
+        return 0;
+
+    // TODO: Use x, y
+    int r = (int)byte_span[0];
+    int g = (int)byte_span[1];
+    int b = (int)byte_span[2];
+
+    return (r << 16) | (g << 8) | (b << 0);
+}
+
+// Reads one pixel from the framebuffer and returns a 32-bit integer:
+// R << 16  |  G << 8  |  B << 0
+int FrameBuffer::read_rgb565_pixel(int x, int y) {
+    // If the frame buffer hasn't yet been configured, return false
+    if (!frame_buf.exists())
+        return 0;
+    if (frame_buf.get_width() == 0)
+        return 0;
+
+    // Reserve space for Width * Height * 3 bytes
+    const std::size_t array_size = get_width() * get_height() * 2;
+    std::vector<std::byte> byte_span(array_size);
+
+    // Read RGB888 values from the frame buffer
+    if (!frame_buf.read_rgb565(byte_span))
+        return 0;
+
+    // TODO: Use x, y
+    int r = (int)(((byte_span[1] & (std::byte)0b11111000)) >> 3);
+    int g = (int)(((byte_span[1] & (std::byte)0b00000111)) << 3) |
+            (int)(((byte_span[0] & (std::byte)0b11100000)) >> 5);
+    int b = (int)(byte_span[0] & (std::byte)0b00011111);
+
+    return (r << 16) | (g << 8) | (b << 0);
+}
+
+// Reads one pixel from the framebuffer and returns a 32-bit integer:
+// Y << 16  |  U << 8  |  V << 0
+int FrameBuffer::read_yuv422_pixel(int x, int y) {
+    // If the frame buffer hasn't yet been configured, return false
+    if (!frame_buf.exists())
+        return 0;
+    if (frame_buf.get_width() == 0)
+        return 0;
+
+    // Reserve space for Width * Height * 2 bytes
+    const std::size_t array_size = get_width() * get_height() * 2;
+    std::vector<std::byte> byte_span(array_size);
+
+    // Read YUV422 values from the frame buffer
+    if (!frame_buf.read_yuv422(byte_span))
+        return 0;
+
+    // TODO: Use x, y
+    int y1 = (int)byte_span[0];
+    int u = (int)byte_span[1];
+    int v = (int)byte_span[3];
+
+    return (y1 << 16) | (u << 8) | (v << 0);
 }
