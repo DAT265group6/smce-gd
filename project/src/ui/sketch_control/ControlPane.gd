@@ -396,7 +396,7 @@ func reset_vehicle_pos() -> void:
 		return
 	var was_frozen = vehicle.frozen
 	vehicle.freeze()
-	vehicle.global_transform.origin = init_vec_pos()
+	vehicle.global_transform.origin = Vector3(20,20,20)#init_vec_pos()
 	vehicle.global_transform.basis = Basis()
 	if ! was_frozen:
 		vehicle.unfreeze()

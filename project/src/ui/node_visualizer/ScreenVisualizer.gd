@@ -15,16 +15,38 @@
 #
 
 class_name ScreenVisualizer
-extends TextureRect
+extends VBoxContainer
 
+var _tr: TextureRect = null
+var _label: Label = null
 var _node: Node = null
 var _texture_func: String = ""
+var _rgb888_func: String = ""
+var _rgb565_func: String = ""
+var _yuv_func: String = ""
+var _pick_x = 0
+var _pick_y = 0
 
-func display_node(node: Node, texture_func: String) -> bool:
+func _ready():
+	rect_min_size.x = 120
+	rect_min_size.y = 175
+
+	_tr = TextureRect.new()
+	_tr.rect_min_size.x = 120
+	_tr.rect_min_size.y = 70
+	add_child(_tr)
+
+	_label = Label.new()
+	add_child(_label)
+
+func display_node(node: Node, texture_func: String, rgb888_func: String, rgb565_func: String, yuv_func: String) -> bool:
 	if ! node || ! node.has_method(texture_func):
 		return false
 	_node = node
 	_texture_func = texture_func
+	_rgb888_func = rgb888_func
+	_rgb565_func = rgb565_func
+	_yuv_func = yuv_func
 	
 	return true
 
@@ -32,5 +54,8 @@ func _process(_delta: float) -> void:
 	if ! _node:
 		return
 	
-	texture = _node.call(_texture_func)
-	rect_scale = Vector2(10, 10)
+	_tr.texture = _node.call(_texture_func)
+	_tr.stretch_mode = 5
+	_tr.expand = true
+
+	_label.text = "Pixel (" + String(_pick_x) + ", " + String(_pick_y) + ")\n" + _node.call(_rgb888_func) + "\n" + _node.call(_rgb565_func) + "\n" + _node.call(_yuv_func)

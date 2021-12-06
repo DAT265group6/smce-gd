@@ -83,12 +83,7 @@ func _on_frame() -> void:
 # This method adds the attachment visualizer to the control panel
 func visualize() -> Control:
 	var visualizer = ScreenVisualizer.new()
-	visualizer.rect_min_size.x = 120
-	visualizer.rect_min_size.y = 70
-	visualizer.display_node(self, "create_texture")
-
-	# This part should probably move to ScreenVisualizer class and be rethought somehow...
-	visualizer.rect_scale = Vector2(10, 10)
+	visualizer.display_node(self, "create_texture", "get_rgb888", "get_rgb565", "get_yuv")
 	return visualizer
 
 func create_texture() -> ImageTexture:
@@ -100,3 +95,24 @@ func create_texture() -> ImageTexture:
 	texture.create_from_image(image)
 	texture.flags = 0
 	return texture
+
+func get_rgb888() -> String:
+	var rgb: int = view.framebuffers(key).read_rgb888_pixel(0, 0)
+	var r = (rgb >> 16) & 255
+	var g = (rgb >> 8) & 255
+	var b = (rgb >> 0) & 255
+	return "RGB888: " + String(r) + ", " + String(g) + ", " + String(b)
+
+func get_rgb565() -> String:
+	var rgb: int = view.framebuffers(key).read_rgb565_pixel(0, 0)
+	var r = (rgb >> 16) & 255
+	var g = (rgb >> 8) & 255
+	var b = (rgb >> 0) & 255
+	return "RGB565: " + String(r) + ", " + String(g) + ", " + String(b)
+
+func get_yuv() -> String:
+	var yuv: int = view.framebuffers(key).read_yuv422_pixel(0, 0)
+	var y = (yuv >> 16) & 255
+	var u = (yuv >> 8) & 255
+	var v = (yuv >> 0) & 255
+	return "YUV: " + String(y) + ", " + String(u) + ", " + String(v)
