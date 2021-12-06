@@ -84,7 +84,6 @@ func _on_frame() -> void:
 func visualize() -> Control:
 	var visualizer = ScreenVisualizer.new()
 	visualizer.display_node(self, "create_texture", "get_rgb888", "get_rgb565", "get_yuv")
-
 	return visualizer
 
 func create_texture() -> ImageTexture:

@@ -36,6 +36,7 @@ set (CMAKE_CXX_EXTENSIONS OFF)
 set (CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 
+
 find_package(Threads REQUIRED)
 
 #find_package(SMCE 1.4 REQUIRED)
@@ -51,8 +52,6 @@ find_package(Threads REQUIRED)
 #    message(STATUS "libSMCE statically linked")
 #endif ()
 #
-
-
 
 
 include (CheckIPOSupported)
