@@ -56,11 +56,6 @@ shape = SubResource( 3 )
 transform = Transform( -0.08, 0, -3.72727e-06, 0, 0.08, 0, 2.98182e-07, 0, -1, 0, 0.037512, -2.19019 )
 texture = ExtResource( 3 )
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform( -0.1, 0, -1.50996e-07, 0, 0.1, 0, 1.50996e-08, 0, -1, 0.002, 0.038, -2.2 )
-pixel_size = 1.0
-texture = SubResource( 4 )
-
 [node name="LeftBack" type="RayCast" parent="."]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.934, 0, 0.675 )
 enabled = true
