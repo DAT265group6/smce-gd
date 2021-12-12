@@ -53,6 +53,12 @@ func set_view(view):
 		if attach.has_method("set_view"):
 			attach.set_view(view)
 
+func a():
+	for attachment in attachments:
+		if attachment.has_method("create_texture"):
+			$Sprite3D2.texture = attachment.create_texture()
+			#$Sprite3D2.texture = null
+
 
 func add_aux_attachment(slot_name: String, attachment: Node) -> GDResult:
 	for slot in attachment_slots:
@@ -106,13 +112,12 @@ func unfreeze() -> void:
 	for wheel in _wheels:
 		wheel.prev_pos = wheel.global_transform.origin
 
-
 func _integrate_forces(state: PhysicsDirectBodyState) -> void:
 	var key_direction: int = (
 		int(Input.is_action_pressed("ui_up"))
 		- int(Input.is_action_pressed("ui_down"))
 	)
-	
+
 	for wheel in _rightw:
 		if _view:
 			if is_instance_valid(rmotor):

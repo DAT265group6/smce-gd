@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/objects/ray_car/RayCar.gd" type="Script" id=1]
 [ext_resource path="res://media/images/icon.png" type="Texture" id=3]
@@ -17,6 +17,11 @@ extents = Vector3( 0.628528, 0.232967, 0.868031 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.92613, 0.140498, 0.426843 )
+
+[sub_resource type="ImageTexture" id=4]
+flags = 23
+flags = 23
+size = Vector2( 5, 5 )
 
 [node name="RayCar" type="RigidBody"]
 can_sleep = false

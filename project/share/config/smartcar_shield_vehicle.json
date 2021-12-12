@@ -9,8 +9,11 @@
          }
       },
       "Front2": {
-         "class": "Camera",
-         "name": "Front Camera"
+         "class": "Screen",
+         "name": "Front Screen",
+         "props": {
+            "key": 1
+         }
       },
       "FrontTop": {
          "class": "UltraSonic",

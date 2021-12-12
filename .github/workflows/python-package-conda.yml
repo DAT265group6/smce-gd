@@ -1,0 +1,26 @@
+name: Code Smell Checker
+
+on: [push]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-20.04
+    strategy:
+      max-parallel: 5
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10.0
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10.0
+    - name: Add conda to system path
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        echo $CONDA/bin >> $GITHUB_PATH
+    - name: Install dependencies
+      run: |
+        pip3 install libclang
+    - name: Download code smell tool
+      run:  curl https://raw.githubusercontent.com/DAT265group6/code-smell-tool/main/sniff.py --output sniff.py
+    - name: Detect smells
+      run: python ./sniff.py ./src

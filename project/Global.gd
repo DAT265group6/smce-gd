@@ -36,6 +36,7 @@ var version: String = "unknown"
 var _classes: Array = [
 	AnalogRaycast, BrushedMotor,
 	preload("res://src/attachments/Camera.gd"),
+	preload("res://src/attachments/Screen.gd"),
 	preload("res://src/attachments/Gyroscope.gd"),
 	preload("res://src/utilities/sensors/odometer/Odometer.gd"),
 	RayCar, RayWheel, UltraSonic,
