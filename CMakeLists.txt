@@ -39,25 +39,9 @@ set (CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 find_package(Threads REQUIRED)
 
-#find_package(SMCE 1.4 REQUIRED)
-#
-#option (SMCE_LINK_STATIC "Link to libSMCE statically" Off)
-#
-#set (SMCE_TARGET SMCE::SMCE)
-#if (SMCE_LINK_STATIC)
-#    if (NOT TARGET SMCE::SMCE_static)
-#        message (FATAL_ERROR "Static link requested but libSMCE static library not installed")
-#    endif ()
-#    set (SMCE_TARGET SMCE::SMCE_static)
-#    message(STATUS "libSMCE statically linked")
-#endif ()
-#
-
-
 include (CheckIPOSupported)
 check_ipo_supported (RESULT CMAKE_IPO_SUPPORTED LANGUAGES CXX)
 set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ${CMAKE_IPO_SUPPORTED})
-
 
 list (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake/Modules")
 include(SetupSMCE)
